@@ -11,7 +11,7 @@ categories:
       labels:
         - 'feature'
         - 'enhancement'
-  - title: 'Dependency Updates'
+  - title: '⬆️ Dependency Updates'
       label: 'dependencies'
   - title: '🧰 Maintenance'
       labels: 
