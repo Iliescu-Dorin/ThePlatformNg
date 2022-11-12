@@ -1,37 +1,42 @@
 template: |
   ## What’s Changed
   $CHANGES
-name-template: 'v$RESOLVED_VERSION'
+name-template: 'v$RESOLVED_VERSION 🌈'
 tag-template: 'v$RESOLVED_VERSION'
 
 categories:
-  - title: 'IMPORTANT'
-    label: 'type: important'
-  - title: 'New'
-    label: 'type: feature'
-  - title: 'Bug Fixes'
-    label: 'type: bug'
-  - title: 'Refactor'
-    label: 'type: maintenance'
-  - title: 'Documentation'
-    label: 'type: docs'
+  - title: '❗ IMPORTANT'
+      label: 'important'
+  - title: '🚀 New Features'
+      labels:
+        - 'feature'
+        - 'enhancement'
   - title: 'Dependency Updates'
-    label: 'type: dependencies'
-
+      label: 'dependencies'
+  - title: '🧰 Maintenance'
+      labels: 
+        - 'maintenance'
+        - 'chore'
+  - title: '📗 Documentation'
+      label: 'docs'
+  - title: '🐛 Bug Fixes'
+      labels:
+        - 'fix'
+        - 'bugfix'
+        - 'bug'
+        
 version-resolver:
+  major:
+    labels:
+      - 'major'
   minor:
     labels:
-      - 'type: important'
-
+      - 'minor'
   patch:
     labels:
-      - 'type: bug'
-      - 'type: maintenance'
-      - 'type: docs'
-      - 'type: dependencies'
-      - 'type: feature'
+      - 'patch'
+  default: patch
 
 exclude-labels:
   - 'skip-changelog'
-  - 'gradle-wrapper'
   - 'github_actions'
