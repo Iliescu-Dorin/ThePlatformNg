@@ -2,7 +2,6 @@
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
 
 name: CI
-
 on: 
   push:
     branches:
@@ -11,17 +10,10 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  build:
-
+  SonarCloud-Static_Code_Analysis:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: 6.0.x
-    
     - name: Cache SonarCloud packages
       uses: actions/cache@v3
       with:
@@ -54,7 +46,16 @@ jobs:
         <insert_your_build_command>
         .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"        
         
+  Build_and_Publish:  
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
     
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+        
     - name: DotNet Publish
       run: dotnet publish source/Web --configuration Release --output web
 
