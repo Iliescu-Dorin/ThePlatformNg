@@ -1,0 +1,29 @@
+<button class="c-button"
+    [@press]="pressed"
+    [ngClass]="{
+      'state-progress': progressState,
+      'state-done': doneState
+    }"
+    (click)="buttonClicked()">
+
+  <div>
+    <span class="msg-0">Download</span>
+    <span class="msg-1">Downloading</span>
+    <span class="msg-2">Done</span>
+  </div>
+  <div class="icon-container"
+  [ngClass]="{'bouncer':bounce}">
+    <i
+    *ngIf="initial"
+    @fadeSlideIn
+    class="fa fa-download" aria-hidden="true"></i>
+    <i
+     *ngIf="bounce"
+     @SlideInForbouce
+     class="fa fa-arrow-down" aria-hidden="true"></i>
+    <i
+    *ngIf="zoom"
+    @fadeSlideIn
+    class="fa fa-check" aria-hidden="true"></i>
+  </div>
+</button>

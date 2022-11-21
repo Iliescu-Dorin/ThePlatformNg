@@ -1,0 +1,25 @@
+{
+  "name": "client-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@angular/common": "^15.0.0",
+    "@angular/compiler": "^15.0.0",
+    "@angular/core": "^15.0.0",
+    "@angular/platform-browser": "^15.0.0",
+    "@angular/router": "^15.0.0",
+    "@types/jest": "^29.2.3",
+    "fluentvalidation-ts": "^2.3.0",
+    "rxjs": "^7.5.7",
+    "typescript": "^4.9.3",
+    "vite": "^3.2.4",
+    "zone.js": "^0.12.0"
+  }
+}
