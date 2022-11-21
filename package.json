@@ -1,0 +1,5 @@
+{
+	"devDependencies": {
+		"@angular/router": "^15.0.0"
+	}
+}
