@@ -20,6 +20,7 @@ specifiers:
   '@fortawesome/free-regular-svg-icons': ^6.2.0
   '@fortawesome/free-solid-svg-icons': ^6.2.0
   '@types/jasmine': ~4.3.0
+  fluentvalidation-ts: ^2.3.0
   font-awesome-animation: ^1.1.1
   jasmine-core: ~4.5.0
   karma: ~6.4.0
@@ -58,6 +59,7 @@ devDependencies:
   '@angular/cli': 15.0.0
   '@angular/compiler-cli': 15.0.0_wi64dnikphprnhepyj5q2xqyru
   '@types/jasmine': 4.3.0
+  fluentvalidation-ts: 2.3.0
   jasmine-core: 4.5.0
   karma: 6.4.1
   karma-chrome-launcher: 3.1.1
@@ -3610,6 +3612,10 @@ packages:
 
   /flatted/3.2.7:
     resolution: {integrity: sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==}
+    dev: true
+
+  /fluentvalidation-ts/2.3.0:
+    resolution: {integrity: sha512-qRxmgoEjEMv5JVWIffXSC3e8e2UZIJKzmrDo4lIVWZG2zD2kmOkY+2opfXH3uYi9D1jsnZlUe09pApNEN9NGgQ==}
     dev: true
 
   /follow-redirects/1.15.2:
