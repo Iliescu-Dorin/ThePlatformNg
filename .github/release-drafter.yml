@@ -1,42 +1,42 @@
 template: |
   ## What’s Changed
   $CHANGES
-name-template: 'v$RESOLVED_VERSION 🌈'
-tag-template: 'v$RESOLVED_VERSION'
+name-template: "v$RESOLVED_VERSION 🌈"
+tag-template: "v$RESOLVED_VERSION"
 
 categories:
-  - title: '❗ IMPORTANT'
-      label: 'important'
-  - title: '🚀 New Features'
-      labels:
-        - 'feature'
-        - 'enhancement'
-  - title: '⬆️ Dependency Updates'
-      label: 'dependencies'
-  - title: '🧰 Maintenance'
-      labels: 
-        - 'maintenance'
-        - 'chore'
-  - title: '📗 Documentation'
-      label: 'docs'
-  - title: '🐛 Bug Fixes'
-      labels:
-        - 'fix'
-        - 'bugfix'
-        - 'bug'
-        
+  - title: "❗ IMPORTANT"
+    label: "important"
+  - title: "🚀 New Features"
+    labels:
+      - "feature"
+      - "enhancement"
+  - title: "⬆️ Dependency Updates"
+    label: "dependencies"
+  - title: "🧰 Maintenance"
+    labels:
+      - "maintenance"
+      - "chore"
+  - title: "📗 Documentation"
+    label: "docs"
+  - title: "🐛 Bug Fixes"
+    labels:
+      - "fix"
+      - "bugfix"
+      - "bug"
+
 version-resolver:
   major:
     labels:
-      - 'major'
+      - "major"
   minor:
     labels:
-      - 'minor'
+      - "minor"
   patch:
     labels:
-      - 'patch'
+      - "patch"
   default: patch
 
 exclude-labels:
-  - 'skip-changelog'
-  - 'github_actions'
+  - "skip-changelog"
+  - "github_actions"
