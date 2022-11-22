@@ -8,6 +8,7 @@ import {
 import { Component } from '@angular/core';
 import { interval } from 'rxjs';
 import { take } from 'rxjs/operators';
+import { PwaService } from './pwa.service';
 
 @Component({
   selector: 'app-download-pwa-button',
@@ -40,10 +41,10 @@ import { take } from 'rxjs/operators';
     ]),
   ],
 })
+
 export class DownloadPwaButtonComponent {
-  title = 'animated-download-button';
+  title = 'angular-custom-install-pwa';
   showButton = false;
-  // The button will be disabled for 5 seconds after the user clicks it
   disabled = false;
   pressed = false;
   progressState = false;
@@ -53,9 +54,23 @@ export class DownloadPwaButtonComponent {
   initial = true;
   takeFourSeconds = interval(2000).pipe(take(4));
 
+
+   constructor( public pwa: PwaService ) {
+    // let result=null;
+    if(pwa.shouldInstall()){
+      this.showButton = true;
+    }
+    // result = pwa.checkIfPwaInstalled();
+    // result.then((res) => {
+    //   if(res){
+    //     this.disabled = true;
+    //   }
+    // });
+  }
+
   buttonClicked() {
     this.pressed = true;
-
+    this.pwa.installPwa()
     this.takeFourSeconds.subscribe((x) => {
       if (x == 0) {
         this.initial = false;
@@ -73,5 +88,6 @@ export class DownloadPwaButtonComponent {
         this.initial = true;
       }
     });
+    this.disabled = true;
   }
 }

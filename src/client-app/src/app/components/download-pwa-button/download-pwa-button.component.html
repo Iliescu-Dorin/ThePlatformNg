@@ -1,4 +1,6 @@
 <button class="c-button"
+    [disabled]="disabled"
+    *ngIf="this.showButton"
     [@press]="pressed"
     [ngClass]="{
       'state-progress': progressState,
