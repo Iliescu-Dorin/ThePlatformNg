@@ -10,7 +10,7 @@ updates:
   - package-ecosystem: "nuget" # See documentation for possible values
     directory: "/src/" # Location of package manifests
     commit_message:
-        prefix: "chore"
+        prefix: "🧹 " 
         include_scope: true
     schedule:
         interval: "daily"
