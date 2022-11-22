@@ -7,8 +7,12 @@ version: 2
 updates:
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/src/client-app/" # Location of package manifests
+    
     schedule:
       interval: "daily"
+    commit_message:
+      prefix: "chore"
+      include_scope: true  
   - package-ecosystem: "nuget" # See documentation for possible values
       directory: "/src/" # Location of package manifests
       schedule:
