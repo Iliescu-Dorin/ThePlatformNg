@@ -1,1 +1,11 @@
-<app-sidenav></app-sidenav>
+<app-splash-screen
+  [animationType]="'fade-out'"
+  [duration]="2" [animationDuration]="0.5">
+</app-splash-screen>
+<app-sidenav
+  (toggleSideNav)="onToggleSideNav($event)">
+</app-sidenav>
+<app-body
+  [collapsed]="isSideNavCollapsed"
+  [screenWidth]="screenWidth">
+</app-body>
