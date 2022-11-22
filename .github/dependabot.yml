@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: "npm" 
     directory: "/src/client-app/"  
     schedule:
-    interval: "daily"
+        interval: "daily"
     labels:
       - "chore"
       - "dependencies"
