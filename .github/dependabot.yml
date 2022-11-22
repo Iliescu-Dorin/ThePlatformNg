@@ -2,14 +2,14 @@ version: 2
 updates:
   - package-ecosystem: "npm" 
     directory: "/src/client-app/"  
-    schedule:
-        interval: "daily"
     labels:
       - "chore"
       - "dependencies"
     commit_message:
         prefix: ":arrow_up: "
         include_scope: true  
+    schedule:
+        interval: "daily"
   - package-ecosystem: "nuget" # See documentation for possible values
     directory: "/src/" # Location of package manifests
     labels:
