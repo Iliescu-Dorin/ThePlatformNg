@@ -1,7 +1,7 @@
 template: |
   ## What’s Changed
   $CHANGES
-name-template: "v$RESOLVED_VERSION 🌈"
+name-template: "DreamKatcher v$RESOLVED_VERSION 🌈"
 tag-template: "v$RESOLVED_VERSION"
 
 categories:
