@@ -6,7 +6,7 @@ updates:
       - "chore"
       - "dependencies"
     commit_message:
-        prefix: ":arrow_up: "
+        prefix: "⬆️ "
         include_scope: true  
     schedule:
         interval: "daily"
@@ -16,7 +16,7 @@ updates:
       - "chore"
       - "dependencies"
     commit_message:
-        prefix: ":arrow_up: " 
+        prefix: "⬆️ " 
         include_scope: true
     schedule:
         interval: "daily"
