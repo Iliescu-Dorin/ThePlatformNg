@@ -262,6 +262,23 @@
   }
 }
 
+.ripple {
+  background-position: center;
+  background-color: #fff;
+  transition: background 0.8s;
+}
+
+.ripple:hover,
+.ripple:focus {
+  background: #eff2f3 radial-gradient(circle, transparent 1%, #eff2f3 1%) center/15000%;
+}
+
+.ripple:active {
+  background-color: #eff2f3;
+  background-size: 100%;
+  transition: background 0s;
+}
+
 @keyframes pulse-animation {
   0% {
     box-shadow: 0 0 0 0 rgba(26, 104, 206, 0.6);
