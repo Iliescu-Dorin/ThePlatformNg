@@ -1,1 +1,98 @@
-<p>header works!</p>
+<div class="head" [ngClass]="getHeaderClass()">
+  <div class="head-content">
+    <div class="head-content-left">
+      <!-- <div class="search-container">
+        <div class="normal-search">
+          <input type="search" class="search" name="" id="" placeholder="Search...">
+            <i class="fa fa-search search-icon"></i>
+        </div>
+      </div> -->
+      <app-searchbox></app-searchbox>
+    </div>
+    <div class="head-content-right">
+      <div class="head-menu">
+        <div class="head-menu-item">
+          <button class="head-menu-item-btn ripple" [cdkMenuTriggerFor] = "languageOverlay">
+            <img [src]="selectedLanguage.flag" class="flag" alt="flag">
+          </button>
+        </div>
+        <div class="head-menu-item">
+          <button class="head-menu-item-btn ripple">
+            <i class="fas fa-expand menu-icon"></i>
+          </button>
+        </div>
+        <div class="head-menu-item">
+          <button class="head-menu-item-btn ripple" [cdkMenuTriggerFor] = "notificationOverlay">
+            <i class="fa fa-bell menu-icon"></i>
+          </button>
+        </div>
+        <div class="head-menu-item">
+          <button class="head-menu-item-btn ripple">
+            <i class="fa fa-comment-alt menu-icon"></i>
+          </button>
+        </div>
+      </div>
+      <div class="head-user-avatar-container">
+        <div class="head-user-avatar" [cdkMenuTriggerFor] = "userOverlay">
+          <img src="assets/images/profile-pic.png" alt="user" class="user-avatar">
+          <div class="circle-indicator pulse" [class.offline]="status === onlineStatusCheck.OFFLINE"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #languageOverlay>
+  <div class="overlay overlay-language overlay-fall" cdkMenu>
+    <ul>
+      <li
+      *ngFor="let lang of languages"
+      cdkMenuItem
+      (click)="changeLanguage(lang)"
+      >
+        <img [src]="lang.flag" alt="flag">
+        <span>{{lang.language}}</span>
+      </li>
+    </ul>
+  </div>
+</ng-template>
+
+<ng-template #notificationOverlay>
+  <div class="overlay overlay-notification overlay-fall" cdkMenu>
+    <ul>
+      <li class="notification-head-container">
+        <div class="notification-head">Notification</div>
+        <span class="view-all-link">
+          <a>View All</a>
+        </span>
+      </li>
+      <li class="notification-message-container"
+        *ngFor="let notification of notifications"
+        cdkMenuItem
+      >
+      <i [class]="notification.icon"></i>
+      <div>
+        <div class="notification-subject">
+            {{notification.title}}
+        </div>
+        <p class="notification-desc">
+          {{notification.description}}
+        </p>
+      </div>
+      </li>
+    </ul>
+  </div>
+</ng-template>
+
+<ng-template #userOverlay>
+  <div class="overlay overlay-user overlay-fall" >
+      <ul>
+        <li *ngFor="let item of userItems">
+          <a>
+            <i class="icon" [ngClass]="item.icon"></i>
+            <span>{{item.title}}</span>
+          </a>
+        </li>
+      </ul>
+  </div>
+</ng-template>

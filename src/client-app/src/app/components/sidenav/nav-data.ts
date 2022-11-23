@@ -1,22 +1,22 @@
 export const navbarData = [
   {
     routeLink: '/dashboard',
-    icon: 'fa fa-dashboard',
+    icon: 'fas fa-table',
     label: 'Dashboard',
   },
   {
     routeLink: '/cultures',
-    icon: 'fa fa-empire',
+    icon: 'fab fa-empire',
     label: 'Cultures',
   },
   {
-    routeLink: '/my-history',
+    routeLink: '/my-stories',
     icon: 'fa fa-history',
-    label: 'MyHistory',
+    label: 'MyStories',
   },
   {
     routeLink: '/my-score',
-    icon: 'fa fa-connectdevelop',
+    icon: 'fab fa-connectdevelop',
     // icon: 'fa fa-diagnoses',
     label: 'MyScore',
   },

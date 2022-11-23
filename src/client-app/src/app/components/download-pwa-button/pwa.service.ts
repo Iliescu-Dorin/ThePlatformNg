@@ -24,13 +24,14 @@ export class PwaService {
     this.promptEvent.prompt();
     this.promptEvent.userChoice.then((choiceResult: any) => {
       if (choiceResult.outcome === 'accepted') {
-        console.log('User mengizinkan install pwa');
+        console.log('User accepted the A2HS prompt');
       } else {
-        console.log('User menolak install pwa');
+        console.log('User dismissed the A2HS prompt');
       }
       this.promptEvent = null;
     });
   }
+
   public async checkIfPwaInstalled(){
     let relatedApps=null;
     //check if browser version supports the api
@@ -40,6 +41,7 @@ export class PwaService {
     }
     return false;
   }
+
   public shouldInstall(): boolean {
     switch (this.isRunningStandalone()) {
       case 'browser':

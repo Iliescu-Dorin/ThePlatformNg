@@ -1,3 +1,9 @@
+<!-- <div [ngClass]="{'dark-theme': isDarkTheme | async}">
+  <div class="mat-app-background">
+  <router-outlet></router-outlet>
+  </div>
+  </div> -->
+
 <app-splash-screen
   [animationType]="'fade-out'"
   [duration]="2" [animationDuration]="0.5">
@@ -5,6 +11,10 @@
 <app-sidenav
   (toggleSideNav)="onToggleSideNav($event)">
 </app-sidenav>
+<app-header
+  [collapsed]="isSideNavCollapsed"
+  [screenWidth]="screenWidth"
+></app-header>
 <app-body
   [collapsed]="isSideNavCollapsed"
   [screenWidth]="screenWidth">

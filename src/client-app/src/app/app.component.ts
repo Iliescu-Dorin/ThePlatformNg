@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ThemeService } from './services/theme-service';
 
 interface SideNavToggle{
   screenWidth: number;
@@ -10,7 +12,16 @@ interface SideNavToggle{
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent  {
+  // isDarkTheme: Observable<boolean> | undefined;
+
+  // constructor(
+  //   private themeService: ThemeService,
+  //   ) {}
+
+  // ngOnInit() {
+  //   this.isDarkTheme = this.themeService.isDarkTheme;
+  // }
   title = 'client-app';
 
   isSideNavCollapsed = false;

@@ -50,7 +50,9 @@ export class SidenavComponent implements OnInit {
   collapsed = false; // default value
   screenWidth = 0;
   navData = navbarData;
-
+  @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(event: KeyboardEvent) {
+    this.closeSideNav();
+  }
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.screenWidth = window.innerWidth;
