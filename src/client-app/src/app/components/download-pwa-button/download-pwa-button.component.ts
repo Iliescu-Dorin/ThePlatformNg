@@ -5,7 +5,7 @@ import {
   transition,
   trigger
 } from '@angular/animations';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { interval } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { PwaService } from './pwa.service';
@@ -41,7 +41,6 @@ import { PwaService } from './pwa.service';
     ]),
   ],
 })
-
 export class DownloadPwaButtonComponent {
   title = 'angular-custom-install-pwa';
   showButton = false;
@@ -54,18 +53,10 @@ export class DownloadPwaButtonComponent {
   initial = true;
   takeFourSeconds = interval(2000).pipe(take(4));
 
-
    constructor( public pwa: PwaService ) {
-    // let result=null;
     if(pwa.shouldInstall()){
-      this.showButton = true;
+      this.showButton = pwa.status;
     }
-    // result = pwa.checkIfPwaInstalled();
-    // result.then((res) => {
-    //   if(res){
-    //     this.disabled = true;
-    //   }
-    // });
   }
 
   buttonClicked() {
