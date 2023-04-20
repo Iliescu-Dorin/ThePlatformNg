@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "L0hbINoVtjhQiUreLOMyXwx3EsAkhI4bN/nCDDv3sdFogOCegzHedwyKS6bdP1CSM6tHXQ9JCdXE3n+qenZgDw==",
+  "success": false,
+  "projectFilePath": "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\Food Analysis\\FoodAnalysis.WebApi\\FoodAnalysis.WebApi.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1008",
+      "level": "Error",
+      "message": "Projects that use central package version management should not define the version on the PackageReference items but on the PackageVersion items: Microsoft.AspNetCore.OpenApi;Swashbuckle.AspNetCore."
+    }
+  ]
+}
