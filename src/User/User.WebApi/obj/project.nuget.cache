@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "SOC4jwIaCWXAFufauP10ARUgIkdQWBz4W4TAw7OALAohyEF/zEcKz9euAp8zwn1FHd5ZE2AZNzv3aKfY0mzCpw==",
+  "success": false,
+  "projectFilePath": "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\User\\User.WebApi\\User.WebApi.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1010",
+      "level": "Error",
+      "message": "The PackageReference items FastEndpoints;FastEndpoints.Swagger;FluentValidation do not have corresponding PackageVersion."
+    }
+  ]
+}

@@ -1,0 +1,332 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\Dream\\Dream.WebApi\\Dream.WebApi.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\Core\\Core.SharedKernel\\Core.SharedKernel.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\Core\\Core.SharedKernel\\Core.SharedKernel.csproj",
+        "projectName": "Core.SharedKernel",
+        "projectPath": "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\Core\\Core.SharedKernel\\Core.SharedKernel.csproj",
+        "packagesPath": "C:\\Users\\dorin.iliescu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\Core\\Core.SharedKernel\\obj\\",
+        "projectStyle": "PackageReference",
+        "centralPackageVersionsManagementEnabled": true,
+        "configFilePaths": [
+          "C:\\Users\\dorin.iliescu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "centralPackageVersions": {
+            "coverlet.collector": "[3.1.2, )",
+            "MediatR": "[12.0.1, )",
+            "Microsoft.AspNetCore.OpenApi": "[7.0.4, )",
+            "Microsoft.AspNetCore.SpaProxy": "[7.0.4, )",
+            "Microsoft.EntityFrameworkCore": "[7.0.4, )",
+            "Microsoft.Extensions.Configuration": "[7.0.0, )",
+            "Microsoft.Extensions.DependencyInjection": "[7.0.0, )",
+            "Microsoft.NET.Test.Sdk": "[17.3.2, )",
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "[1.17.2, )",
+            "Swashbuckle.AspNetCore": "[6.4.0, )",
+            "xunit": "[2.4.2, )",
+            "xunit.runner.visualstudio": "[2.4.5, )"
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\Dream\\Dream.Domain\\DreamDomain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\Dream\\Dream.Domain\\DreamDomain.csproj",
+        "projectName": "DreamDomain",
+        "projectPath": "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\Dream\\Dream.Domain\\DreamDomain.csproj",
+        "packagesPath": "C:\\Users\\dorin.iliescu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\Dream\\Dream.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "centralPackageVersionsManagementEnabled": true,
+        "configFilePaths": [
+          "C:\\Users\\dorin.iliescu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\Core\\Core.SharedKernel\\Core.SharedKernel.csproj": {
+                "projectPath": "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\Core\\Core.SharedKernel\\Core.SharedKernel.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "centralPackageVersions": {
+            "coverlet.collector": "[3.1.2, )",
+            "MediatR": "[12.0.1, )",
+            "Microsoft.AspNetCore.OpenApi": "[7.0.4, )",
+            "Microsoft.AspNetCore.SpaProxy": "[7.0.4, )",
+            "Microsoft.EntityFrameworkCore": "[7.0.4, )",
+            "Microsoft.Extensions.Configuration": "[7.0.0, )",
+            "Microsoft.Extensions.DependencyInjection": "[7.0.0, )",
+            "Microsoft.NET.Test.Sdk": "[17.3.2, )",
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "[1.17.2, )",
+            "Swashbuckle.AspNetCore": "[6.4.0, )",
+            "xunit": "[2.4.2, )",
+            "xunit.runner.visualstudio": "[2.4.5, )"
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\Dream\\Dream.Infrastructure\\DreamInfrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\Dream\\Dream.Infrastructure\\DreamInfrastructure.csproj",
+        "projectName": "DreamInfrastructure",
+        "projectPath": "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\Dream\\Dream.Infrastructure\\DreamInfrastructure.csproj",
+        "packagesPath": "C:\\Users\\dorin.iliescu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\Dream\\Dream.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "centralPackageVersionsManagementEnabled": true,
+        "configFilePaths": [
+          "C:\\Users\\dorin.iliescu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\Dream\\Dream.Domain\\DreamDomain.csproj": {
+                "projectPath": "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\Dream\\Dream.Domain\\DreamDomain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.4, )",
+              "versionCentrallyManaged": true
+            }
+          },
+          "centralPackageVersions": {
+            "coverlet.collector": "[3.1.2, )",
+            "MediatR": "[12.0.1, )",
+            "Microsoft.AspNetCore.OpenApi": "[7.0.4, )",
+            "Microsoft.AspNetCore.SpaProxy": "[7.0.4, )",
+            "Microsoft.EntityFrameworkCore": "[7.0.4, )",
+            "Microsoft.Extensions.Configuration": "[7.0.0, )",
+            "Microsoft.Extensions.DependencyInjection": "[7.0.0, )",
+            "Microsoft.NET.Test.Sdk": "[17.3.2, )",
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "[1.17.2, )",
+            "Swashbuckle.AspNetCore": "[6.4.0, )",
+            "xunit": "[2.4.2, )",
+            "xunit.runner.visualstudio": "[2.4.5, )"
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\Dream\\Dream.WebApi\\Dream.WebApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\Dream\\Dream.WebApi\\Dream.WebApi.csproj",
+        "projectName": "Dream.WebApi",
+        "projectPath": "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\Dream\\Dream.WebApi\\Dream.WebApi.csproj",
+        "packagesPath": "C:\\Users\\dorin.iliescu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\Dream\\Dream.WebApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "centralPackageVersionsManagementEnabled": true,
+        "configFilePaths": [
+          "C:\\Users\\dorin.iliescu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\Dream\\Dream.Infrastructure\\DreamInfrastructure.csproj": {
+                "projectPath": "C:\\Users\\dorin.iliescu\\OneDrive - BearingPoint GmbH\\Documents\\HAUSAUFGABE\\ObscuraDreamlog\\Dream\\Dream.Infrastructure\\DreamInfrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[7.0.4, )",
+              "versionCentrallyManaged": true
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.4, )",
+              "versionCentrallyManaged": true
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.17.2, )",
+              "versionCentrallyManaged": true
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )",
+              "versionCentrallyManaged": true
+            }
+          },
+          "centralPackageVersions": {
+            "coverlet.collector": "[3.1.2, )",
+            "MediatR": "[12.0.1, )",
+            "Microsoft.AspNetCore.OpenApi": "[7.0.4, )",
+            "Microsoft.AspNetCore.SpaProxy": "[7.0.4, )",
+            "Microsoft.EntityFrameworkCore": "[7.0.4, )",
+            "Microsoft.Extensions.Configuration": "[7.0.0, )",
+            "Microsoft.Extensions.DependencyInjection": "[7.0.0, )",
+            "Microsoft.NET.Test.Sdk": "[17.3.2, )",
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "[1.17.2, )",
+            "Swashbuckle.AspNetCore": "[6.4.0, )",
+            "xunit": "[2.4.2, )",
+            "xunit.runner.visualstudio": "[2.4.5, )"
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
