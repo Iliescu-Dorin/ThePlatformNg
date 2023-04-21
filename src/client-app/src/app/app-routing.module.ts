@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MyScoreComponent } from './my-score/my-score.component';
 import { MyStoriesComponent } from './my-stories/my-stories.component';
 import { SettingsComponent } from './settings/settings.component';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '',redirectTo: '/dashboard', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'my-score',component:MyScoreComponent},
   { path: 'blog',component:BlogComponent},
   { path: 'settings',component:SettingsComponent},
+  { path: '**',component:NotFoundComponent},
 ];
 
 @NgModule({

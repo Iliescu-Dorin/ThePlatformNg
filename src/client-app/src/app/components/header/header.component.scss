@@ -4,7 +4,7 @@
   z-index: 1;
   transition: all 0.5s ease;
   background: #f4f7fa;
-  padding: 1rem 1.5rem 0 1.5rem;
+  padding: .5rem 1.5rem 0 1.5rem;
 
   position: fixed;
   top: 0;
@@ -62,10 +62,10 @@
 
         .head-menu-item {
           .head-menu-item-btn {
+            cursor: pointer;
             font-size: 18px;
             height: 42px;
             width: 42px;
-            cursor: pointer;
             border: 1px solid transparent;
             border-radius: 5px;
             margin-left: 5px;
@@ -111,34 +111,12 @@
             }
           }
         }
-
-        .circle-indicator {
-          width: 12px;
-          height: 12px;
-          border-radius: 50%;
-          position: absolute;
-          top: -2px;
-          right: -3px;
-          background: #699dfa;
-
-          &.pulse {
-            animation: pulse-animation 1.7s infinite ease-in-out alternate;
-          }
-        }
-
-        .circle-indicator.pulse.offline {
-          width: 12px;
-          height: 12px;
-          border-radius: 50%;
-          position: absolute;
-          top: -2px;
-          right: -3px;
-          background: #b50101;
-        }
       }
     }
   }
 }
+
+
 .head-trimmed {
   width: calc(100% - 16.5625rem);
   margin-left: 16.5625rem;
@@ -277,15 +255,6 @@
   background-color: #eff2f3;
   background-size: 100%;
   transition: background 0s;
-}
-
-@keyframes pulse-animation {
-  0% {
-    box-shadow: 0 0 0 0 rgba(26, 104, 206, 0.6);
-  }
-  100% {
-    box-shadow: 0 0 0 3px rgba(17, 64, 126, 0.6);
-  }
 }
 
 @keyframes fall {

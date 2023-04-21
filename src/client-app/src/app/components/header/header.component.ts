@@ -8,11 +8,11 @@ import { languages, notifications, userItems } from './header-dummy-data';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  status: OnlineStatusType = OnlineStatusType.ONLINE; //Enum provided by ngx-online-status
-  onlineStatusCheck = OnlineStatusType;
+
 
   canShowSearchAsOverlay = false;
   selectedLanguage : any;
+  show = true;
 
   languages = languages;
   notifications = notifications;
@@ -21,13 +21,6 @@ export class HeaderComponent implements OnInit {
   @Input() collapsed = false;
   @Input() screenWidth = 0;
 
-
-  constructor(private onlineStatusService: OnlineStatusService) {
-    this.onlineStatusService.status.subscribe((status: OnlineStatusType) => {
-      // Retrieve Online status Type
-      this.status = status;
-    });
-  }
 
   ngOnInit(): void {
     this.checkCanShowSearchAsOverlay(window.innerWidth);
@@ -41,6 +34,10 @@ export class HeaderComponent implements OnInit {
 
   changeLanguage(lang : any) {
     this.selectedLanguage = lang;
+  }
+  toggleZenMode() {
+    this.show = !this.show;
+
   }
 
   getHeaderClass() : string {

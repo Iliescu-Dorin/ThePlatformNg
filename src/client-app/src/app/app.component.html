@@ -6,16 +6,16 @@
 
 <app-splash-screen
   [animationType]="'fade-out'"
-  [duration]="2" [animationDuration]="0.5">
+  [duration]="2"
+  [animationDuration]="0.5"
+>
 </app-splash-screen>
-<app-sidenav
-  (toggleSideNav)="onToggleSideNav($event)">
-</app-sidenav>
+<app-sidenav (toggleSideNav)="onToggleSideNav($event)"> </app-sidenav>
 <app-header
   [collapsed]="isSideNavCollapsed"
   [screenWidth]="screenWidth"
 ></app-header>
-<app-body
-  [collapsed]="isSideNavCollapsed"
-  [screenWidth]="screenWidth">
+<app-body [collapsed]="isSideNavCollapsed" [screenWidth]="screenWidth">
+  <!-- <span *ngIf="update" style="text-align: center;">There is a new update please refresh!</span> -->
 </app-body>
+<app-floating-button *ngIf="show"></app-floating-button>
