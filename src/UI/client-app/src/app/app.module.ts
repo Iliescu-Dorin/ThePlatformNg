@@ -12,7 +12,9 @@ import { BlogComponent } from './blog/blog.component';
 import { BodyComponent } from './body/body.component';
 import { DownloadPwaButtonComponent } from './components/download-pwa-button/download-pwa-button.component';
 import { PwaService } from './components/download-pwa-button/pwa.service';
+import { FloatingButtonComponent } from './components/floating-button/floating-button.component';
 import { HeaderComponent } from './components/header/header.component';
+import { NotificationComponent } from './components/notification/notification.component';
 import { SearchboxComponent } from './components/searchbox/searchbox.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { SplashScreenComponent } from './components/splash-screen/splash-screen.component';
@@ -22,6 +24,7 @@ import { MyScoreComponent } from './my-score/my-score.component';
 import { MyStoriesComponent } from './my-stories/my-stories.component';
 import { PagesComponent } from './pages/pages.component';
 import { SettingsComponent } from './settings/settings.component';
+import { SharedModule } from './shared/shared.module';
 import { StatisticsComponent } from './statistics/statistics.component';
 
 const initializer = (pwaService: PwaService) => () => pwaService.initPwaPrompt();
@@ -41,21 +44,24 @@ const initializer = (pwaService: PwaService) => () => pwaService.initPwaPrompt()
     BlogComponent,
     MyStoriesComponent,
     SplashScreenComponent,
-    SearchboxComponent
+    SearchboxComponent,
+    NotificationComponent,
+    FloatingButtonComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
     OnlineStatusModule,
+    SharedModule,
     CdkMenuModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    AppRoutingModule,
   ],
   providers: [
     {provide: APP_INITIALIZER, useFactory: initializer, deps: [PwaService], multi: true},

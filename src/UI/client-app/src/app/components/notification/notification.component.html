@@ -1,5 +1,6 @@
   <div class="notification">
-    <em class="fa fa-bell menu-icon" [ngClass]= "{'notify': notify}"></em>
+    <img src="assets/images/profile-pic.png" class="menu-icon" [ngClass]= "{'notify': notify}">
     <span class="badge" *ngIf = " count > 0">{{count}}</span>
+    <div class="circle-indicator" [ngClass]= "{'pulse' : status === onlineStatusCheck.ONLINE}" [class.offline]="status === onlineStatusCheck.OFFLINE"></div>
   </div>
   <!-- <button class="btn-send ripple" (click)="onSendClick()">Send Notification</button> -->

@@ -46,10 +46,12 @@ interface SideNavToggle {
   ],
 })
 export class SidenavComponent implements OnInit {
-  @Output() toggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   collapsed = false; // default value
   screenWidth = 0;
   navData = navbarData;
+  show = true;
+
+  @Output() toggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(event: KeyboardEvent) {
     this.closeSideNav();
   }

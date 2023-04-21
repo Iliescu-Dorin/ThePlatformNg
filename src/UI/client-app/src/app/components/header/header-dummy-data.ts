@@ -38,6 +38,14 @@ export const languages = [
 ];
 
 export const notifications = [
+//   {
+//         title: 'No new notifications',
+//         description: 'You have 0 new notifications',
+//         icon: 'fa-regular fa-bell',
+//         time: '',
+//         color: ''
+//       }
+// ];
   {
     id: 1,
     title: 'New User Registered',
