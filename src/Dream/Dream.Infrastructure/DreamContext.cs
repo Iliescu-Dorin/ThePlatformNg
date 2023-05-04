@@ -4,8 +4,14 @@ using Microsoft.EntityFrameworkCore;
 namespace DreamInfrastructure;
 public partial class DreamContext : DbContext
 {
-    public DbSet<Dream> Dreams { get; set; }
-    public DbSet<Interpretation> Interpretations { get; set; }
+    public DbSet<Dream> Dreams {
+        get;
+        set;
+    }
+    public DbSet<Interpretation> Interpretations {
+        get;
+        set;
+    }
     public DreamContext(DbContextOptions<DreamContext> options) : base(options)
     {
     }

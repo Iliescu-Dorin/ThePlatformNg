@@ -19,15 +19,17 @@ public class DreamEntityTypeConfiguration : IEntityTypeConfiguration<Dream>
         builder.Property(d => d.Date).IsRequired();
         builder.Property(d => d.Id).IsRequired();
         builder.Property(d => d.Symbols)
-                .IsRequired()
-                .HasMaxLength(500)
-                .HasConversion(
-                   v => JsonSerializer.Serialize(v, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase,WriteIndented = true}),
-                   v => JsonSerializer.Deserialize<List<string>>(v, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }),
-                   new ValueComparer<List<string>>(
-                        (c1, c2) => c1.SequenceEqual(c2),
-                        c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
-                        c => c.ToList()));
+        .IsRequired()
+        .HasMaxLength(500)
+        .HasConversion(
+        v => JsonSerializer.Serialize(v, new JsonSerializerOptions {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,WriteIndented = true
+        }),
+        v => JsonSerializer.Deserialize<List<string>>(v, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }),
+        new ValueComparer<List<string>>(
+            (c1, c2) => c1.SequenceEqual(c2),
+            c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
+            c => c.ToList()));
         //builder.HasOne(d => d.User).WithMany(u => u.Dreams).HasForeignKey(d => d.UserId);
         //builder.HasMany(d => d.Interpretations).WithOne(i => i.Dream).HasForeignKey(i => i.DreamId);
     }

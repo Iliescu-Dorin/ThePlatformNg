@@ -23,7 +23,7 @@ public class Program
             app.UseSwaggerUI();
         }
 
-        app.UseAuthorization();     
+        app.UseAuthorization();
 
         app.Run();
     }
