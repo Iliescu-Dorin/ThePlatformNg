@@ -1,4 +1,4 @@
-﻿using DreamInfrastructure;
+using DreamInfrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
@@ -17,7 +17,7 @@ public class DreamDbContextFactory : IDesignTimeDbContextFactory<DreamContext>
         var dbConnectionString = configForDb.GetSection("DreamApi");
 
         var identityDbContextOptionsBuilder = new DbContextOptionsBuilder<DreamContext>()
-            .UseSqlServer(dbConnectionString.Value, opt => opt.MigrationsAssembly(typeof(DreamContext).Assembly.GetName().Name));
+            .UseSqlServer(dbConnectionString.Value, opt => opt.MigrationsAssembly("DreamWebApi"));
 
         return new DreamContext(identityDbContextOptionsBuilder.Options);
     }

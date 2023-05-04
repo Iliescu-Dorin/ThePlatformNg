@@ -1,4 +1,6 @@
-﻿namespace DreamInfrastructure.Interfaces;
+using DreamDomain.Entities;
+
+namespace DreamInfrastructure.Interfaces;
 public interface IDreamRepository
 {
     void AddDream(Dream dream);
