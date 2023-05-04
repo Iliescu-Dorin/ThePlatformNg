@@ -9,117 +9,96 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace DreamWebApi.Migrations
-{
+namespace DreamWebApi.Migrations {
 [DbContext(typeof(DreamContext))]
 [Migration("20230504224610_AddDreamAndInterpretation")]
-partial class AddDreamAndInterpretation
-{
-    /// <inheritdoc />
-    protected override void BuildTargetModel(ModelBuilder modelBuilder)
-    {
+partial class AddDreamAndInterpretation {
+  /// <inheritdoc />
+  protected override void BuildTargetModel(ModelBuilder modelBuilder) {
 #pragma warning disable 612, 618
-        modelBuilder
-        .HasAnnotation("ProductVersion", "7.0.5")
+    modelBuilder.HasAnnotation("ProductVersion", "7.0.5")
         .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-        SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+    SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-        modelBuilder.Entity("DreamDomain.Entities.Dream", b =>
-        {
-            b.Property<Guid>("Id")
-            .ValueGeneratedOnAdd()
-            .HasColumnType("uniqueidentifier");
+    modelBuilder.Entity("DreamDomain.Entities.Dream", b => {
+      b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnType(
+          "uniqueidentifier");
 
-            b.Property<DateTime>("Date")
-            .HasColumnType("datetime2");
+      b.Property<DateTime>("Date").HasColumnType("datetime2");
 
-            b.Property<string>("Description")
-            .IsRequired()
-            .HasMaxLength(1000)
-            .HasColumnType("nvarchar(1000)");
+      b.Property<string>("Description")
+          .IsRequired()
+          .HasMaxLength(1000)
+          .HasColumnType("nvarchar(1000)");
 
-            b.Property<string>("Symbols")
-            .IsRequired()
-            .HasMaxLength(500)
-            .HasColumnType("nvarchar(500)");
+      b.Property<string>("Symbols")
+          .IsRequired()
+          .HasMaxLength(500)
+          .HasColumnType("nvarchar(500)");
 
-            b.Property<string>("Title")
-            .IsRequired()
-            .HasMaxLength(50)
-            .HasColumnType("nvarchar(50)");
+      b.Property<string>("Title").IsRequired().HasMaxLength(50).HasColumnType(
+          "nvarchar(50)");
 
-            b.Property<Guid>("UserId")
-            .HasColumnType("uniqueidentifier");
+      b.Property<Guid>("UserId").HasColumnType("uniqueidentifier");
 
-            b.HasKey("Id");
+      b.HasKey("Id");
 
-            b.ToTable("Dream", (string)null);
-        });
+      b.ToTable("Dream", (string)null);
+    });
 
-        modelBuilder.Entity("DreamDomain.Entities.Interpretation", b =>
-        {
-            b.Property<Guid>("Id")
-            .ValueGeneratedOnAdd()
-            .HasColumnType("uniqueidentifier");
+    modelBuilder.Entity("DreamDomain.Entities.Interpretation", b => {
+      b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnType(
+          "uniqueidentifier");
 
-            b.Property<int>("Culture")
-            .HasColumnType("int");
+      b.Property<int>("Culture").HasColumnType("int");
 
-            b.Property<Guid?>("DreamId")
-            .HasColumnType("uniqueidentifier");
+      b.Property<Guid?>("DreamId").HasColumnType("uniqueidentifier");
 
-            b.Property<string>("ExtractedText")
-            .IsRequired()
-            .HasColumnType("nvarchar(max)");
+      b.Property<string>("ExtractedText")
+          .IsRequired()
+          .HasColumnType("nvarchar(max)");
 
-            b.Property<string>("Meaning")
-            .IsRequired()
-            .HasColumnType("nvarchar(max)");
+      b.Property<string>("Meaning").IsRequired().HasColumnType("nvarchar(max)");
 
-            b.HasKey("Id");
+      b.HasKey("Id");
 
-            b.HasIndex("DreamId");
+      b.HasIndex("DreamId");
 
-            b.ToTable("Interpretation", (string)null);
-        });
+      b.ToTable("Interpretation", (string)null);
+    });
 
-        modelBuilder.Entity("DreamDomain.Entities.Interpretation", b =>
-        {
-            b.HasOne("DreamDomain.Entities.Dream", null)
-            .WithMany("Interpretations")
-            .HasForeignKey("DreamId");
+    modelBuilder.Entity("DreamDomain.Entities.Interpretation", b => {
+      b.HasOne("DreamDomain.Entities.Dream", null)
+          .WithMany("Interpretations")
+          .HasForeignKey("DreamId");
 
-            b.OwnsOne("DreamDomain.Entities.InterpretationSelectedText", "SelectedText", b1 =>
-            {
-                b1.Property<Guid>("InterpretationId")
-                .HasColumnType("uniqueidentifier");
+      b.OwnsOne("DreamDomain.Entities.InterpretationSelectedText",
+                "SelectedText", b1 => {
+                  b1.Property<Guid>("InterpretationId")
+                      .HasColumnType("uniqueidentifier");
 
-                b1.Property<string>("EndOffset")
-                .IsRequired()
-                .HasColumnType("nvarchar(max)");
+                  b1.Property<string>("EndOffset")
+                      .IsRequired()
+                      .HasColumnType("nvarchar(max)");
 
-                b1.Property<string>("StartOffset")
-                .IsRequired()
-                .HasColumnType("nvarchar(max)");
+                  b1.Property<string>("StartOffset")
+                      .IsRequired()
+                      .HasColumnType("nvarchar(max)");
 
-                b1.HasKey("InterpretationId");
+                  b1.HasKey("InterpretationId");
 
-                b1.ToTable("Interpretation");
+                  b1.ToTable("Interpretation");
 
-                b1.WithOwner()
-                .HasForeignKey("InterpretationId");
-            });
+                  b1.WithOwner().HasForeignKey("InterpretationId");
+                });
 
-            b.Navigation("SelectedText")
-            .IsRequired();
-        });
+      b.Navigation("SelectedText").IsRequired();
+    });
 
-        modelBuilder.Entity("DreamDomain.Entities.Dream", b =>
-        {
-            b.Navigation("Interpretations");
-        });
+    modelBuilder.Entity("DreamDomain.Entities.Dream",
+                        b => { b.Navigation("Interpretations"); });
 #pragma warning restore 612, 618
-    }
+  }
 }
 }

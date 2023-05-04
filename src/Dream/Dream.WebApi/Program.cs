@@ -4,28 +4,25 @@ using DreamInfrastructure.Repositories;
 
 namespace DreamWebApi;
 
-public class Program
-{
-    public static void Main(string[] args)
-    {
-        var builder = WebApplication.CreateBuilder(args);
+public class Program {
+  public static void Main(string[] args) {
+    var builder = WebApplication.CreateBuilder(args);
 
-        builder.Services.AddAuthorization();
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
+    builder.Services.AddAuthorization();
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen();
 
-        //builder.Services.AddSingleton(IDreamRepository, DreamRepository);
+    // builder.Services.AddSingleton(IDreamRepository, DreamRepository);
 
-        var app = builder.Build();
+    var app = builder.Build();
 
-        if (app.Environment.IsDevelopment())
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI();
-        }
-
-        app.UseAuthorization();
-
-        app.Run();
+    if (app.Environment.IsDevelopment()) {
+      app.UseSwagger();
+      app.UseSwaggerUI();
     }
+
+    app.UseAuthorization();
+
+    app.Run();
+  }
 }

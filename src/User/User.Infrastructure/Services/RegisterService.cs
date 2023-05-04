@@ -1,13 +1,13 @@
-using Microsoft.Extensions.Configuration; //nuget extension
-using Microsoft.Extensions.DependencyInjection; //nuget extension
+using Microsoft.Extensions.Configuration;       // nuget extension
+using Microsoft.Extensions.DependencyInjection; // nuget extension
 
-namespace User.Infrastructure.Services
-{
-//public class RegisterService
+namespace User.Infrastructure.Services {
+// public class RegisterService
 //{
-//    public static void ConfigureInfraStructure(this IServiceCollection services, IConfiguration configuration)
-//    {
-//        //Here we can register our DI services related to Infrastructure
+//     public static void ConfigureInfraStructure(this IServiceCollection
+//     services, IConfiguration configuration)
+//     {
+//         //Here we can register our DI services related to Infrastructure
 
 //    }
 //}
