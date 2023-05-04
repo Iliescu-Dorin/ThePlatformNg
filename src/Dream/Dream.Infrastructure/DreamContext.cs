@@ -1,4 +1,4 @@
-﻿using DreamDomain.Entities;
+using DreamDomain.Entities;
 using DreamInfrastructure.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
 namespace DreamInfrastructure;
@@ -17,4 +17,6 @@ public partial class DreamContext : DbContext
         modelBuilder.ApplyConfiguration(new InterpretationEntityTypeConfiguration());
         //modelBuilder.ApplyConfigurationsFromAssembly(typeof(DreamContext).Assembly);
     }
+
+
 }
