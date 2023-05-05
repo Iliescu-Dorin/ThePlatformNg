@@ -1,4 +1,4 @@
-   import gulp from 'gulp'
+import gulp from 'gulp'
 import gulpBrotli from 'gulp-brotli'
 import zlib from 'zlib'
 

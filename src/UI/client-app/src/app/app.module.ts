@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { OnlineStatusModule } from 'ngx-online-status';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +26,7 @@ import { PagesComponent } from './pages/pages.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SharedModule } from './shared/shared.module';
 import { StatisticsComponent } from './statistics/statistics.component';
+
 
 const initializer = (pwaService: PwaService) => () => pwaService.initPwaPrompt();
 @NgModule({
@@ -71,4 +72,5 @@ const initializer = (pwaService: PwaService) => () => pwaService.initPwaPrompt()
     CUSTOM_ELEMENTS_SCHEMA
   ],
 })
-export class AppModule { }
+export class AppModule {
+ }

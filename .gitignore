@@ -262,4 +262,5 @@ paket-files/
 
 #Others
 .DS_Store
-.vscode/
+.vscode/*
+.history/*
