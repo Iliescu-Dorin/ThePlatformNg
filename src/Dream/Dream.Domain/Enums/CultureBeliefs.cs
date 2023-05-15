@@ -1,4 +1,4 @@
-﻿namespace DreamDomain.Enums;
+namespace DreamData.Domain.Enums;
 public enum CultureBeliefs
 {
     Western,

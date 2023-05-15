@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace DreamWebApi.Migrations
+namespace DreamData.API.Migrations
 {
     /// <inheritdoc />
     public partial class AddDreamAndInterpretation : Migration

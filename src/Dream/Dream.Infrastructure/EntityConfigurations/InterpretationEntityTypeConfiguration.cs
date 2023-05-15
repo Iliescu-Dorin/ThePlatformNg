@@ -1,8 +1,8 @@
-using DreamDomain.Entities;
+using DreamData.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace DreamInfrastructure.EntityConfigurations;
+namespace DreamData.Infrastructure.EntityConfigurations;
 public class InterpretationEntityTypeConfiguration : IEntityTypeConfiguration<Interpretation>
 {
     public void Configure(EntityTypeBuilder<Interpretation> builder)

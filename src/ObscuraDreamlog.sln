@@ -14,9 +14,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blog", "Blog", "{49D48313-9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{CF77A775-DEC9-4EF8-8997-53A9BD0B6E83}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.WebApi", "Blog\Blog.WebApi\Blog.WebApi.csproj", "{C2CEC6D6-70CC-491A-B4C5-BF053FE2FFA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.API", "Blog\Blog.API\Blog.API.csproj", "{C2CEC6D6-70CC-491A-B4C5-BF053FE2FFA2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User.WebApi", "User\User.WebApi\User.WebApi.csproj", "{EF68A111-91B4-4E9F-823C-DE777E7E795B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User.API", "User\User.API\User.API.csproj", "{EF68A111-91B4-4E9F-823C-DE777E7E795B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User.UnitTests", "User\User.UnitTests\User.UnitTests.csproj", "{09EE1C49-3C57-4047-BC7A-A943FDC6AC89}"
 EndProject
@@ -30,43 +30,41 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User.Application", "User\Us
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notification", "Notification", "{B2EBFB10-20E0-461D-B518-07A9E517CF02}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notification.WebApi", "Notification\Notification.WebApi\Notification.WebApi.csproj", "{BFDA245C-EA18-4BDD-B46A-E581CA7CF505}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notification.API", "Notification\Notification.API\Notification.API.csproj", "{BFDA245C-EA18-4BDD-B46A-E581CA7CF505}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "Authentication", "{66F95A4D-01EA-4108-9842-B4A311F75ED0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authentication.WebApi", "Authentication\Authentication.WebApi\Authentication.WebApi.csproj", "{A328982E-F6EA-4B32-8914-9B2C94E16BE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authentication.API", "Authentication\Authentication.API\Authentication.API.csproj", "{A328982E-F6EA-4B32-8914-9B2C94E16BE4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gamification", "Gamification", "{5F897B2D-DE0A-425A-8826-3DF3783F5600}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamification.WebApi", "Gamification\Gamification.WebApi\Gamification.WebApi.csproj", "{15EFE71B-1799-48E8-9D49-781921C3046E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamification.API", "Gamification\Gamification.API\Gamification.API.csproj", "{15EFE71B-1799-48E8-9D49-781921C3046E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dream", "Dream", "{12B6AB32-8D47-49AA-810A-AD882736C989}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamWebApi", "Dream\Dream.WebApi\DreamWebApi.csproj", "{EDE6F28F-16CE-4A8F-9C96-B9D934864FF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamData.API", "Dream\Dream.API\DreamData.API.csproj", "{EDE6F28F-16CE-4A8F-9C96-B9D934864FF3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DreamReport", "DreamReport", "{A82155E9-5ECD-480F-A7E1-09A301A2C242}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamReport.WebApi", "Dream Report\DreamReport.WebApi\DreamReport.WebApi.csproj", "{694FCFC4-2E69-4F85-B092-C820BEF9583F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamReport.Api", "Dream Report\DreamReport.API\DreamReport.Api.csproj", "{694FCFC4-2E69-4F85-B092-C820BEF9583F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DreamScore", "DreamScore", "{C230C75B-CD5A-42CD-AE97-73EA5731A387}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamScore.WebApi", "Dream Score\DreamScore.WebApi\DreamScore.WebApi.csproj", "{F390919B-3A66-4478-8855-459C168844DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamScore.API", "Dream Score\DreamScore.API\DreamScore.API.csproj", "{F390919B-3A66-4478-8855-459C168844DA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DreamAnalysis", "DreamAnalysis", "{063EFDDF-2C45-4117-A202-9B95E8DF2E24}"
 EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "DreamAnalysis.WebApi", "Dream Analysis\DreamAnalysis.WebApi\DreamAnalysis.WebApi.pyproj", "{951E314B-641B-44D9-9E3D-8493E9B8822A}"
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "DreamAnalysis.API", "Dream Analysis\DreamAnalysis.WebApi\DreamAnalysis.WebApi.pyproj", "{951E314B-641B-44D9-9E3D-8493E9B8822A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.SharedKernel", "Core\Core.SharedKernel\Core.SharedKernel.csproj", "{93C68BA5-6AE3-4642-9180-FF24665524D0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamInfrastructure", "Dream\Dream.Infrastructure\DreamInfrastructure.csproj", "{8196D701-110E-42EF-AA7C-5264147D859E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamData.Infrastructure", "Dream\Dream.Infrastructure\DreamData.Infrastructure.csproj", "{8196D701-110E-42EF-AA7C-5264147D859E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamDomain", "Dream\Dream.Domain\DreamDomain.csproj", "{97CB1316-03D8-442B-BE85-C1E6A5DD1A8D}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamApplication", "Dream\Dream.Application\DreamApplication.csproj", "{D752942A-9340-4CA9-BC72-F557D4231DD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamData.Domain", "Dream\Dream.Domain\DreamData.Domain.csproj", "{97CB1316-03D8-442B-BE85-C1E6A5DD1A8D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FoodAnalysis", "FoodAnalysis", "{F0AE8580-3165-4A1B-9C4D-D547EDDE3DB4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodAnalysis.WebApi", "Food Analysis\FoodAnalysis.WebApi\FoodAnalysis.WebApi.csproj", "{4FE2957A-9050-4451-B243-6D4BF2D63F5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodAnalysis.API", "Food Analysis\FoodAnalysis.API\FoodAnalysis.API.csproj", "{4FE2957A-9050-4451-B243-6D4BF2D63F5A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodAnalysis.Domain", "Dream Analysis\FoodAnalysis.Domain\FoodAnalysis.Domain.csproj", "{779A1078-2FF2-4202-9C95-67F92C983705}"
 EndProject
@@ -142,10 +140,6 @@ Global
 		{97CB1316-03D8-442B-BE85-C1E6A5DD1A8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97CB1316-03D8-442B-BE85-C1E6A5DD1A8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97CB1316-03D8-442B-BE85-C1E6A5DD1A8D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D752942A-9340-4CA9-BC72-F557D4231DD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D752942A-9340-4CA9-BC72-F557D4231DD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D752942A-9340-4CA9-BC72-F557D4231DD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D752942A-9340-4CA9-BC72-F557D4231DD1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4FE2957A-9050-4451-B243-6D4BF2D63F5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4FE2957A-9050-4451-B243-6D4BF2D63F5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FE2957A-9050-4451-B243-6D4BF2D63F5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -175,7 +169,6 @@ Global
 		{93C68BA5-6AE3-4642-9180-FF24665524D0} = {CF77A775-DEC9-4EF8-8997-53A9BD0B6E83}
 		{8196D701-110E-42EF-AA7C-5264147D859E} = {12B6AB32-8D47-49AA-810A-AD882736C989}
 		{97CB1316-03D8-442B-BE85-C1E6A5DD1A8D} = {12B6AB32-8D47-49AA-810A-AD882736C989}
-		{D752942A-9340-4CA9-BC72-F557D4231DD1} = {12B6AB32-8D47-49AA-810A-AD882736C989}
 		{4FE2957A-9050-4451-B243-6D4BF2D63F5A} = {F0AE8580-3165-4A1B-9C4D-D547EDDE3DB4}
 		{779A1078-2FF2-4202-9C95-67F92C983705} = {F0AE8580-3165-4A1B-9C4D-D547EDDE3DB4}
 	EndGlobalSection

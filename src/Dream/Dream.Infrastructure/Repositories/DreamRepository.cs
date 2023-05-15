@@ -1,25 +1,25 @@
-using DreamDomain.Entities;
-using DreamInfrastructure.Interfaces;
+using DreamData.Domain.Entities;
+using DreamData.Infrastructure.Interfaces;
 
-namespace DreamInfrastructure.Repositories;
-public class DreamRepository : IDreamRepository
+namespace DreamData.Infrastructure.Repositories;
+public class DreamRepository : IDreamDataRepository
 {
-    public void AddDream(Dream dream)
+    public Task AddDream(Dream dream)
     {
         throw new NotImplementedException();
     }
 
-    public List<Dream> GetAllDreams()
+    public Task<List<Dream>> GetAllDreams()
     {
         throw new NotImplementedException();
     }
 
-    public Dream GetDreamById(Guid id)
+    public Task<Dream> GetDreamById(Guid id)
     {
         throw new NotImplementedException();
     }
 
-    public List<Dream> GetDreamsByCulture(string culture)
+    public Task<List<Dream>> GetDreamsByCulture(string culture)
     {
         throw new NotImplementedException();
     }

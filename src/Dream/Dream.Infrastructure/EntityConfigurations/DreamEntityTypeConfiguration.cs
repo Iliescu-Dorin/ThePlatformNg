@@ -1,11 +1,11 @@
-using DreamDomain.Entities;
+using DreamData.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.Text.Json;
 using System.Xml;
 
-namespace DreamInfrastructure.EntityConfigurations;
+namespace DreamData.Infrastructure.EntityConfigurations;
 public class DreamEntityTypeConfiguration : IEntityTypeConfiguration<Dream>
 {
     public void Configure(EntityTypeBuilder<Dream> builder)

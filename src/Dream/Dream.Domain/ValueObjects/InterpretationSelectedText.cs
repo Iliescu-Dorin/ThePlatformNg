@@ -1,4 +1,4 @@
-﻿namespace DreamDomain.ValueObjects;
+﻿namespace DreamData.Domain.ValueObjects;
 //public class InterpretationSelectedText : ValueObject
 //{
 //    public string StartOffset { get; set; } = string.Empty;

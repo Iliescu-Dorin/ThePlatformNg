@@ -1,7 +1,7 @@
 using Core.SharedKernel.Entities;
-using DreamDomain.Enums;
+using DreamData.Domain.Enums;
 
-namespace DreamDomain.Entities;
+namespace DreamData.Domain.Entities;
 public class Interpretation : Entity<Guid>
 {
     public Interpretation(Guid id) : base(id)

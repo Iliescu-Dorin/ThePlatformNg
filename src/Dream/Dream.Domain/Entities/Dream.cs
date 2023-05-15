@@ -1,6 +1,6 @@
 using Core.SharedKernel.Entities;
 
-namespace DreamDomain.Entities;
+namespace DreamData.Domain.Entities;
 public class Dream : Entity<Guid>
 {
     public Dream(Guid id) : base(id)

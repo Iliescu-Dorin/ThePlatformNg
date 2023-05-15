@@ -1,8 +1,8 @@
-using DreamInfrastructure;
+using DreamData.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace DreamWebApi;
+namespace DreamData.API;
 
 public class DreamDbContextFactory : IDesignTimeDbContextFactory<DreamContext>
 {

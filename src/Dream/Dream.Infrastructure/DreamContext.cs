@@ -1,7 +1,7 @@
-using DreamDomain.Entities;
-using DreamInfrastructure.EntityConfigurations;
+using DreamData.Domain.Entities;
+using DreamData.Infrastructure.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
-namespace DreamInfrastructure;
+namespace DreamData.Infrastructure;
 public partial class DreamContext : DbContext
 {
     public DbSet<Dream> Dreams { get; set; }
