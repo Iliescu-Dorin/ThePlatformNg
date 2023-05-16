@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Configuration; //nuget extension
 using Microsoft.Extensions.DependencyInjection; //nuget extension
 
-namespace User.Infrastructure.Services
+namespace UserData.Infrastructure.Services
 {
     //public class RegisterService
     //{

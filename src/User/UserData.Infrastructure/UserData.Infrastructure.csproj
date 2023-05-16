@@ -11,4 +11,8 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UserData.Domain\UserData.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

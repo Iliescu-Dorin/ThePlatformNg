@@ -1,4 +1,4 @@
-namespace User.UnitTests
+namespace UserData.UnitTests
 {
     public class UnitTest1
     {

@@ -1,8 +1,8 @@
 
-using User.Application;
-using User.Infrastructure;
+using UserData.Application;
+using UserData.Infrastructure;
 
-namespace User.WebApi;
+namespace UserData.WebApi;
 
 public class Program
 {
