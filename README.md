@@ -5,11 +5,11 @@
  <a href="https://www.linkedin.com/in/babak-taremi/" alt="Connect on LinkedIn">
    <img src="https://img.shields.io/badge/-Babak%20Taremi-0072b1?style=flat&logo=Linkedin&logoColor=white" />
  </a>
- 
+
   <a href="mailto:babaktaremi@yahoo.com" alt="Email">
   <img src="https://img.shields.io/badge/-Babak%20Taremi-0072b1?style=flat&logo=yahoo&logoColor=white&color=purple" />
  </a>
- 
+
   <a href="https://t.me/BoB_Tm" alt="My Telegram">
    <img src="https://img.shields.io/badge/-Babak%20Taremi-0072b1?style=flat&logo=telegram&logoColor=white&color=darkblue" />
  </a>
