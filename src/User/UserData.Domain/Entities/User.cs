@@ -1,10 +1,14 @@
 using Core.SharedKernel.Entities;
 
-namespace User.Domain.Entities;
+namespace UserData.Domain.Entities;
 
-public class User 
+public class User : Entity<Guid>
 {
-    public int Id { get; set; }
+    public User(Guid id) : base(id)
+    {
+    }
+
+    public new Guid Id { get; set; }
     public string? Username { get; set; }
     
     public string? Place { get; set; }

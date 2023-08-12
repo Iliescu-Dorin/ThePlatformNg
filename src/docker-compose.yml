@@ -55,14 +55,6 @@ services:
       context: .
       dockerfile: Dream Score/DreamScore.API/Dockerfile
 
-
-  blog.api:
-    image: ${DOCKER_REGISTRY-}blogapi
-    build:
-      context: .
-      dockerfile: Blog/Blog.API/Dockerfile
-
-
   foodanalyzer.api:
     image: ${DOCKER_REGISTRY-}foodanalyzerapi
     build:
@@ -76,3 +68,29 @@ services:
       context: .
       dockerfile: Dream Analyzer/DreamAnalyzer.API/Dockerfile
 
+
+  yarp.loadbalancer:
+    image: ${DOCKER_REGISTRY-}yarploadbalancer
+    build:
+      context: .
+      dockerfile: API Gateway/YARP.LoadBalancer/Dockerfile
+
+
+  blog.api:
+    image: ${DOCKER_REGISTRY-}blogapi
+    build:
+      context: .
+      dockerfile: Blog/Blog.API/Dockerfile
+
+  notifications.db:
+    image: postgres:latest
+    container_name: notifications-db
+    environment:
+        - POSTGRES_DB=obscura
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+    volumes:
+        - ./.containers/db:/var/lib/postgres
+    ports:
+        - 5432:5432
+    

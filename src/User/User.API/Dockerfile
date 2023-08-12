@@ -9,7 +9,7 @@ WORKDIR /src
 COPY ["Directory.Packages.props", "."]
 COPY ["User/User.API/User.API.csproj", "User/User.API/"]
 COPY ["User/User.Application/User.Application.csproj", "User/User.Application/"]
-COPY ["User/User.Infrastructure/User.Infrastructure.csproj", "User/User.Infrastructure/"]
+COPY ["User/UserData.Infrastructure/UserData.Infrastructure.csproj", "User/UserData.Infrastructure/"]
 RUN dotnet restore "User/User.API/User.API.csproj"
 COPY . .
 WORKDIR "/src/User/User.API"

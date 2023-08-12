@@ -1,4 +1,4 @@
-﻿namespace User.Domain.Enums;
+namespace UserData.Domain.Enums;
 public enum Gender
 {
     Male,

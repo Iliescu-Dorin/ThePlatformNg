@@ -17,7 +17,8 @@
         "dreamscore.api": "StartDebugging",
         "blog.api": "StartDebugging",
         "foodanalyzer.api": "StartDebugging",
-        "dreamanalyzer.api": "StartDebugging"
+        "dreamanalyzer.api": "StartDebugging",
+        "yarp.loadbalancer": "StartDebugging"
       }
     }
   }

@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "secretStore": null,
+      "resourceId": null,
+      "type": "secrets.user",
+      "connectionId": null
+    },
+    "postgresql1": {
+      "containerPorts": "5432:5432",
+      "secretStore": "LocalSecretsFile",
+      "containerName": "blog-db",
+      "containerImage": "postgres",
+      "type": "postgresql.container",
+      "connectionId": "BlogAPI",
+      "dynamicId": null
+    }
+  }
+}

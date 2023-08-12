@@ -22,9 +22,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User.UnitTests", "User\User
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI", "UI\UI.csproj", "{07AF654E-A2AC-4F7A-9B58-0C4FADF6FEF4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User.Domain", "User\User.Domain\User.Domain.csproj", "{1E56F061-4F0C-4A0F-BCA5-213ED64B54DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserData.Domain", "User\User.Domain\UserData.Domain.csproj", "{1E56F061-4F0C-4A0F-BCA5-213ED64B54DB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User.Infrastructure", "User\User.Infrastructure\User.Infrastructure.csproj", "{53A45E55-1D4F-4317-9C2B-269213AB237D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserData.Infrastructure", "User\User.Infrastructure\UserData.Infrastructure.csproj", "{53A45E55-1D4F-4317-9C2B-269213AB237D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User.Application", "User\User.Application\User.Application.csproj", "{3CE3C8A4-DB99-40F3-B50F-FE681EDA5627}"
 EndProject
@@ -54,9 +54,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamScore.API", "Dream Sco
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.SharedKernel", "Core\Core.SharedKernel\Core.SharedKernel.csproj", "{93C68BA5-6AE3-4642-9180-FF24665524D0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamData.Infrastructure", "Dream\Dream.Infrastructure\DreamData.Infrastructure.csproj", "{8196D701-110E-42EF-AA7C-5264147D859E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamData.Infrastructure", "Dream\DreamData.Infrastructure\DreamData.Infrastructure.csproj", "{8196D701-110E-42EF-AA7C-5264147D859E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamData.Domain", "Dream\Dream.Domain\DreamData.Domain.csproj", "{97CB1316-03D8-442B-BE85-C1E6A5DD1A8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamData.Domain", "Dream\DreamData.Domain\DreamData.Domain.csproj", "{97CB1316-03D8-442B-BE85-C1E6A5DD1A8D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodAnalyzer.API", "Food Analyzer\FoodAnalyzer.API\FoodAnalyzer.API.csproj", "{4FE2957A-9050-4451-B243-6D4BF2D63F5A}"
 EndProject
@@ -69,6 +69,14 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dream Analyzer", "Dream Analyzer", "{F70BEC82-967B-45C1-98B4-35F4B7976F72}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Food Analyzer", "Food Analyzer", "{B98894B9-E06B-410B-A921-791E9FCBAB5F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API Gateway", "API Gateway", "{C72AE541-4B66-40EE-8213-F6801FA62BE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Services", "Core\Core.Services\Core.Services.csproj", "{A92DF1CD-E2EC-4CB4-A2D3-3BE670B3E461}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamData.Application", "Dream\DreamData.Application\DreamData.Application.csproj", "{C384E10D-C0DB-4AC7-8CF2-5098EDB93700}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YARP.LoadBalancer", "API Gateway\YARP.LoadBalancer\YARP.LoadBalancer.csproj", "{C98BDB45-6EB9-4C6C-8239-34B2344C9BA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -156,6 +164,18 @@ Global
 		{35FABE11-F9DC-483D-9060-02931B6009B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35FABE11-F9DC-483D-9060-02931B6009B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35FABE11-F9DC-483D-9060-02931B6009B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A92DF1CD-E2EC-4CB4-A2D3-3BE670B3E461}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A92DF1CD-E2EC-4CB4-A2D3-3BE670B3E461}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A92DF1CD-E2EC-4CB4-A2D3-3BE670B3E461}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A92DF1CD-E2EC-4CB4-A2D3-3BE670B3E461}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C384E10D-C0DB-4AC7-8CF2-5098EDB93700}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C384E10D-C0DB-4AC7-8CF2-5098EDB93700}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C384E10D-C0DB-4AC7-8CF2-5098EDB93700}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C384E10D-C0DB-4AC7-8CF2-5098EDB93700}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C98BDB45-6EB9-4C6C-8239-34B2344C9BA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C98BDB45-6EB9-4C6C-8239-34B2344C9BA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C98BDB45-6EB9-4C6C-8239-34B2344C9BA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C98BDB45-6EB9-4C6C-8239-34B2344C9BA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -179,6 +199,9 @@ Global
 		{4FE2957A-9050-4451-B243-6D4BF2D63F5A} = {B98894B9-E06B-410B-A921-791E9FCBAB5F}
 		{779A1078-2FF2-4202-9C95-67F92C983705} = {B98894B9-E06B-410B-A921-791E9FCBAB5F}
 		{35FABE11-F9DC-483D-9060-02931B6009B8} = {F70BEC82-967B-45C1-98B4-35F4B7976F72}
+		{A92DF1CD-E2EC-4CB4-A2D3-3BE670B3E461} = {CF77A775-DEC9-4EF8-8997-53A9BD0B6E83}
+		{C384E10D-C0DB-4AC7-8CF2-5098EDB93700} = {12B6AB32-8D47-49AA-810A-AD882736C989}
+		{C98BDB45-6EB9-4C6C-8239-34B2344C9BA6} = {C72AE541-4B66-40EE-8213-F6801FA62BE9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FE46D736-4141-4379-8F91-2CB2AAEA0D0E}

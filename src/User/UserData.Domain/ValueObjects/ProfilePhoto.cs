@@ -1,4 +1,4 @@
-﻿namespace User.Domain.ValueObjects;
+namespace UserData.Domain.ValueObjects;
 public class ProfilePhoto
 {
     public string? ImageUrl { get; set; }

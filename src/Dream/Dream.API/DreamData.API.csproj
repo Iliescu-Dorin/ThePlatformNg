@@ -7,6 +7,7 @@
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
     <DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
+    <UserSecretsId>33369c1d-0f7a-41e6-8a3b-c1267ab6383d</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,6 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Dream.Infrastructure\DreamData.Infrastructure.csproj" />
+    <ProjectReference Include="..\DreamData.Infrastructure\DreamData.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

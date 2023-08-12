@@ -6,16 +6,16 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["DreamReport.WebApi/DreamReport.WebApi.csproj", "DreamReport.WebApi/"]
-RUN dotnet restore "DreamReport.WebApi/DreamReport.WebApi.csproj"
+COPY ["DreamReport.API/DreamReport.API.csproj", "DreamReport.API/"]
+RUN dotnet restore "DreamReport.API/DreamReport.API.csproj"
 COPY . .
-WORKDIR "/src/DreamReport.WebApi"
-RUN dotnet build "DreamReport.WebApi.csproj" -c Release -o /app/build
+WORKDIR "/src/DreamReport.API"
+RUN dotnet build "DreamReport.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "DreamReport.WebApi.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "DreamReport.API.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "DreamReport.WebApi.dll"]
+ENTRYPOINT ["dotnet", "DreamReport.API.dll"]
