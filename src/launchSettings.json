@@ -1,0 +1,24 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "composeLaunchAction": "LaunchBrowser",
+      "composeLaunchServiceName": "ui",
+      "composeLaunchUrl": "{Scheme}://localhost:{ServicePort}",
+      "serviceActions": {
+        "user.api": "StartDebugging",
+        "ui": "StartDebugging",
+        "notification.api": "StartDebugging",
+        "authentication.api": "StartDebugging",
+        "gamification.api": "StartDebugging",
+        "dreamdata.api": "StartDebugging",
+        "dreamreport.api": "StartDebugging",
+        "dreamscore.api": "StartDebugging",
+        "blog.api": "StartDebugging",
+        "foodanalyzer.api": "StartDebugging",
+        "dreamanalyzer.api": "StartDebugging"
+      }
+    }
+  }
+}

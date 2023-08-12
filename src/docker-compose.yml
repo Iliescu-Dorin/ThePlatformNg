@@ -1,0 +1,78 @@
+version: '3.4'
+
+services:
+  user.api:
+    image: ${DOCKER_REGISTRY-}userapi
+    build:
+      context: .
+      dockerfile: User/User.API/Dockerfile
+
+  ui:
+    image: ${DOCKER_REGISTRY-}ui
+    build:
+      context: .
+      dockerfile: UI/Dockerfile
+
+
+  notification.api:
+    image: ${DOCKER_REGISTRY-}notificationapi
+    build:
+      context: .
+      dockerfile: Notification/Notification.API/Dockerfile
+
+
+  authentication.api:
+    image: ${DOCKER_REGISTRY-}authenticationapi
+    build:
+      context: .
+      dockerfile: Authentication/Authentication.API/Dockerfile
+
+
+  gamification.api:
+    image: ${DOCKER_REGISTRY-}gamificationapi
+    build:
+      context: .
+      dockerfile: Gamification/Gamification.API/Dockerfile
+
+
+  dreamdata.api:
+    image: ${DOCKER_REGISTRY-}dreamdataapi
+    build:
+      context: .
+      dockerfile: Dream/Dream.API/Dockerfile
+
+
+  dreamreport.api:
+    image: ${DOCKER_REGISTRY-}dreamreportapi
+    build:
+      context: .
+      dockerfile: Dream Report/DreamReport.API/Dockerfile
+
+
+  dreamscore.api:
+    image: ${DOCKER_REGISTRY-}dreamscoreapi
+    build:
+      context: .
+      dockerfile: Dream Score/DreamScore.API/Dockerfile
+
+
+  blog.api:
+    image: ${DOCKER_REGISTRY-}blogapi
+    build:
+      context: .
+      dockerfile: Blog/Blog.API/Dockerfile
+
+
+  foodanalyzer.api:
+    image: ${DOCKER_REGISTRY-}foodanalyzerapi
+    build:
+      context: .
+      dockerfile: Food Analyzer/FoodAnalyzer.API/Dockerfile
+
+
+  dreamanalyzer.api:
+    image: ${DOCKER_REGISTRY-}dreamanalyzerapi
+    build:
+      context: .
+      dockerfile: Dream Analyzer/DreamAnalyzer.API/Dockerfile
+

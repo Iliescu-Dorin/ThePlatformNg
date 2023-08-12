@@ -1,4 +1,4 @@
-namespace FoodAnalysis.WebApi;
+namespace DreamAnalyzer.API;
 
 public class WeatherForecast
 {

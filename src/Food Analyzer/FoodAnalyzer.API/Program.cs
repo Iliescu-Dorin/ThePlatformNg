@@ -1,5 +1,5 @@
 
-namespace FoodAnalysis.WebApi;
+namespace FoodAnalyzer.WebApi;
 
 public class Program
 {

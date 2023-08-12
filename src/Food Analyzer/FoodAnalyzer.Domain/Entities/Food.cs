@@ -1,4 +1,4 @@
-﻿namespace FoodAnalysis.Domain.Entities;
+namespace FoodAnalyzer.Domain.Entities;
 public class Food
 {
     public string Name { get; set; }

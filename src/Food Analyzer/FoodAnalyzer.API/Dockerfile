@@ -7,16 +7,16 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 COPY ["Directory.Packages.props", "."]
-COPY ["Notification/Notification.API/Notification.API.csproj", "Notification/Notification.API/"]
-RUN dotnet restore "Notification/Notification.API/Notification.API.csproj"
+COPY ["Food Analyzer/FoodAnalyzer.API/FoodAnalyzer.API.csproj", "Food Analyzer/FoodAnalyzer.API/"]
+RUN dotnet restore "Food Analyzer/FoodAnalyzer.API/FoodAnalyzer.API.csproj"
 COPY . .
-WORKDIR "/src/Notification/Notification.API"
-RUN dotnet build "Notification.API.csproj" -c Release -o /app/build
+WORKDIR "/src/Food Analyzer/FoodAnalyzer.API"
+RUN dotnet build "FoodAnalyzer.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Notification.API.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "FoodAnalyzer.API.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Notification.API.dll"]
+ENTRYPOINT ["dotnet", "FoodAnalyzer.API.dll"]

@@ -6,16 +6,19 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["User.WebApi/User.WebApi.csproj", "User.WebApi/"]
-RUN dotnet restore "User.WebApi/User.WebApi.csproj"
+COPY ["Directory.Packages.props", "."]
+COPY ["User/User.API/User.API.csproj", "User/User.API/"]
+COPY ["User/User.Application/User.Application.csproj", "User/User.Application/"]
+COPY ["User/User.Infrastructure/User.Infrastructure.csproj", "User/User.Infrastructure/"]
+RUN dotnet restore "User/User.API/User.API.csproj"
 COPY . .
-WORKDIR "/src/User.WebApi"
-RUN dotnet build "User.WebApi.csproj" -c Release -o /app/build
+WORKDIR "/src/User/User.API"
+RUN dotnet build "User.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "User.WebApi.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "User.API.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "User.WebApi.dll"]
+ENTRYPOINT ["dotnet", "User.API.dll"]
