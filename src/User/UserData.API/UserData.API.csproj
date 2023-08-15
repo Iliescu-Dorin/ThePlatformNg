@@ -27,8 +27,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\User.Application\User.Application.csproj" />
-    <ProjectReference Include="..\User.Infrastructure\UserData.Infrastructure.csproj" />
+    <ProjectReference Include="..\UserData.Application\UserData.Application.csproj" />
+    <ProjectReference Include="..\UserData.Infrastructure\UserData.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

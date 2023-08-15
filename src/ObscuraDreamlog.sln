@@ -16,17 +16,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{CF77A775-D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.API", "Blog\Blog.API\Blog.API.csproj", "{C2CEC6D6-70CC-491A-B4C5-BF053FE2FFA2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User.API", "User\User.API\User.API.csproj", "{EF68A111-91B4-4E9F-823C-DE777E7E795B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserData.API", "User\UserData.API\UserData.API.csproj", "{EF68A111-91B4-4E9F-823C-DE777E7E795B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User.UnitTests", "User\User.UnitTests\User.UnitTests.csproj", "{09EE1C49-3C57-4047-BC7A-A943FDC6AC89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserData.UnitTests", "..\test\UserData.UnitTests\UserData.UnitTests.csproj", "{09EE1C49-3C57-4047-BC7A-A943FDC6AC89}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI", "UI\UI.csproj", "{07AF654E-A2AC-4F7A-9B58-0C4FADF6FEF4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserData.Domain", "User\User.Domain\UserData.Domain.csproj", "{1E56F061-4F0C-4A0F-BCA5-213ED64B54DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserData.Domain", "User\UserData.Domain\UserData.Domain.csproj", "{1E56F061-4F0C-4A0F-BCA5-213ED64B54DB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserData.Infrastructure", "User\User.Infrastructure\UserData.Infrastructure.csproj", "{53A45E55-1D4F-4317-9C2B-269213AB237D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserData.Infrastructure", "User\UserData.Infrastructure\UserData.Infrastructure.csproj", "{53A45E55-1D4F-4317-9C2B-269213AB237D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User.Application", "User\User.Application\User.Application.csproj", "{3CE3C8A4-DB99-40F3-B50F-FE681EDA5627}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserData.Application", "User\UserData.Application\UserData.Application.csproj", "{3CE3C8A4-DB99-40F3-B50F-FE681EDA5627}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notification", "Notification", "{B2EBFB10-20E0-461D-B518-07A9E517CF02}"
 EndProject
@@ -72,11 +72,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Food Analyzer", "Food Analy
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API Gateway", "API Gateway", "{C72AE541-4B66-40EE-8213-F6801FA62BE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Services", "Core\Core.Services\Core.Services.csproj", "{A92DF1CD-E2EC-4CB4-A2D3-3BE670B3E461}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Services", "Core\Core.Services\Core.Services.csproj", "{A92DF1CD-E2EC-4CB4-A2D3-3BE670B3E461}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamData.Application", "Dream\DreamData.Application\DreamData.Application.csproj", "{C384E10D-C0DB-4AC7-8CF2-5098EDB93700}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamData.Application", "Dream\DreamData.Application\DreamData.Application.csproj", "{C384E10D-C0DB-4AC7-8CF2-5098EDB93700}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YARP.LoadBalancer", "API Gateway\YARP.LoadBalancer\YARP.LoadBalancer.csproj", "{C98BDB45-6EB9-4C6C-8239-34B2344C9BA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YARP.LoadBalancer", "API Gateway\YARP.LoadBalancer\YARP.LoadBalancer.csproj", "{C98BDB45-6EB9-4C6C-8239-34B2344C9BA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
