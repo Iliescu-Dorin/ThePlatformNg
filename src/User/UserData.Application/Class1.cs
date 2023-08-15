@@ -1,4 +1,4 @@
-﻿namespace User.Application
+﻿namespace UserData.Application
 {
     public class Class1
     {

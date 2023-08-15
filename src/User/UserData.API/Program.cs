@@ -1,8 +1,11 @@
 
-using User.Application;
-using User.Infrastructure;
+using Microsoft.EntityFrameworkCore;
+using UserData.API.Endpoints;
+using UserData.Application;
+using UserData.Infrastructure;
+using UserData.Infrastructure;
 
-namespace User.WebApi;
+namespace UserData.WebApi;
 
 public class Program
 {
@@ -11,13 +14,16 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
+        builder.Services.AddApplication();
+        builder.Services.AddInfrastructure();
+
+        // Add services to the container.
         builder.Services.AddAuthorization();
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+        builder.Services.AddDbContext<UserDbContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionString")));
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
-        //builder.Services.ConfigureInfraStructure(builder.Configuration);
-        //builder.Services.ConfigureApplication(builder.Configuration);
 
         var app = builder.Build();
 
@@ -28,27 +34,11 @@ public class Program
             app.UseSwaggerUI();
         }
 
+        //Endpoints
+        app.MapUserEndpoints();
+
         app.UseAuthorization();
-
-        var summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
-
-        app.MapGet("/weatherforecast", (HttpContext httpContext) =>
-        {
-            var forecast = Enumerable.Range(1, 5).Select(index =>
-                new WeatherForecast
-                {
-                    Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                    TemperatureC = Random.Shared.Next(-20, 55),
-                    Summary = summaries[Random.Shared.Next(summaries.Length)]
-                })
-                .ToArray();
-            return forecast;
-        })
-        .WithName("GetWeatherForecast")
-        .WithOpenApi();
+        app.UseHttpsRedirection();
 
         app.Run();
     }

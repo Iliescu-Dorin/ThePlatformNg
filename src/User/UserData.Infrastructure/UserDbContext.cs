@@ -3,10 +3,10 @@ using UserData.Domain.Entities;
 using UserData.Infrastructure.EntityConfiguration;
 
 namespace UserData.Infrastructure;
-public class UserContext : DbContext
+public class UserDbContext : DbContext
 {
     public DbSet<User> Users { get; set; }
-    public UserContext(DbContextOptions<UserContext> options) : base(options)
+    public UserDbContext(DbContextOptions<UserDbContext> options) : base(options)
     {
     }
 

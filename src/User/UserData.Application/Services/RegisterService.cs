@@ -2,7 +2,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Diagnostics.CodeAnalysis;
 
-namespace User.Application.Services;
+namespace UserData.Application.Services;
 
 [ExcludeFromCodeCoverage]
 public static class RegisterService
