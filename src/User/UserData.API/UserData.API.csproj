@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -10,9 +10,28 @@
     <UserSecretsId>646d2959-3b7c-4d69-b077-dfd2f7d35317</UserSecretsId>
   </PropertyGroup>
 
+    <PropertyGroup>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>$(NoWarn);1591</NoWarn>
+        <Authors>Mihail Dorin Iliescu</Authors>
+        <PackageProjectUrl>https://github.com/Iliescu-Dorin/ThePlatformNg</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Iliescu-Dorin/ThePlatformNg</RepositoryUrl>
+        <RepositoryType>Git</RepositoryType>
+        <PackageTags>ASP.NET Core Dreamlog Project</PackageTags>
+        <Description>
+            A multi-project solution About .NET 6 with Angular DDD Platform and Fluent Validation guided by the Clean Architecture principles enabling rapid application development.</Description>
+        <Copyright>Copyright © Mihail Dorin Iliescu. All rights Reserved</Copyright>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <IsPackable>false</IsPackable>
+        <PackageReleaseNotes>https://github.com/Iliescu-Dorin/ThePlatformNg/releases</PackageReleaseNotes>
+    </PropertyGroup>
+
+    
   <ItemGroup>
-	  <PackageReference Include="FastEndpoints" />
-	  <PackageReference Include="FastEndpoints.Swagger" />
+	  <PackageReference Include="Asp.Versioning.Http" />
+	  <PackageReference Include="Asp.Versioning.Http.Client" />
+	  <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" />
 	  <PackageReference Include="FluentValidation" />
 	  <PackageReference Include="MediatR" />
 	  <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
@@ -22,7 +41,9 @@
 	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	  </PackageReference>
 	  <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+	  <PackageReference Include="Microsoft.Owin.Security" />
 	  <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" />
+	  <PackageReference Include="NWebsec.AspNetCore.Middleware" />
 	  <PackageReference Include="Swashbuckle.AspNetCore" />
   </ItemGroup>
 

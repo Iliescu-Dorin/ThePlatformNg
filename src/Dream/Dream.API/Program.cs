@@ -1,8 +1,3 @@
-
-using DreamData.Infrastructure.Interfaces;
-using DreamData.Infrastructure.Repositories;
-using DreamData.Presentation.Dreams;
-
 namespace DreamData.API;
 
 public class Program
@@ -24,7 +19,6 @@ public class Program
             app.UseSwagger();
             app.UseSwaggerUI();
         }
-        DreamsModule.AddRoutes(app);
 
         app.UseAuthorization();
 

@@ -7,14 +7,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" />
     <PackageReference Include="FluentValidation" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
     <PackageReference Include="MediatR" />
     <PackageReference Include="Microsoft.Extensions.Configuration" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\Core.Services\Core.Services.csproj" />
     <ProjectReference Include="..\UserData.Domain\UserData.Domain.csproj" />
+    <ProjectReference Include="..\UserData.Infrastructure\UserData.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Handlers\QueryHandlers\" />
+    <Folder Include="Handlers\Queries\" />
   </ItemGroup>
 
 </Project>

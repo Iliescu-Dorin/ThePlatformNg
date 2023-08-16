@@ -6,9 +6,9 @@ namespace DreamApplication.Services;
 
 public class DreamDataService : IDreamDataService
 {
-    private readonly IDreamDataRepository _dreamRepository;
+    private readonly IDreamRepository _dreamRepository;
 
-    public DreamDataService(IDreamDataRepository dreamRepository)
+    public DreamDataService(IDreamRepository dreamRepository)
     {
         _dreamRepository = dreamRepository;
     }

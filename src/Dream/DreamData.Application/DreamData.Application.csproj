@@ -6,4 +6,19 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" />
+    <PackageReference Include="FluentValidation" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Core.Services\Core.Services.csproj" />
+    <ProjectReference Include="..\DreamData.Domain\DreamData.Domain.csproj" />
+    <ProjectReference Include="..\DreamData.Infrastructure\DreamData.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Handlers\QueryHandlers\" />
+  </ItemGroup>
+
 </Project>

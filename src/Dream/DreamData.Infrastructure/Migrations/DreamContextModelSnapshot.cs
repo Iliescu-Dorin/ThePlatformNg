@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DreamData.API.Migrations
 {
-    [DbContext(typeof(DreamContext))]
+    [DbContext(typeof(DreamDbContext))]
     partial class DreamContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

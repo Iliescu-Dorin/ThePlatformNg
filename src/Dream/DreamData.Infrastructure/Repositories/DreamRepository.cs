@@ -1,22 +1,12 @@
 using DreamData.Domain.Entities;
 using DreamData.Infrastructure.Interfaces;
+using UserData.Infrastructure.Repositories.Generic;
 
 namespace DreamData.Infrastructure.Repositories;
-public class DreamRepository : IDreamDataRepository
+public class DreamRepository : GenericRepository<Dream, DreamDbContext>, IDreamRepository
 {
-    public Task AddDream(Dream dream)
+    public DreamRepository(DreamDbContext context) : base(context)
     {
-        throw new NotImplementedException();
-    }
-
-    public Task<List<Dream>> GetAllDreams()
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<Dream> GetDreamById(Guid id)
-    {
-        throw new NotImplementedException();
     }
 
     public Task<List<Dream>> GetDreamsByCulture(string culture)
@@ -24,3 +14,4 @@ public class DreamRepository : IDreamDataRepository
         throw new NotImplementedException();
     }
 }
+

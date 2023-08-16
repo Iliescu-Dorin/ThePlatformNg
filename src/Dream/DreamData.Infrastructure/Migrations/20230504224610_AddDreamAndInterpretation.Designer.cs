@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DreamData.API.Migrations
 {
-    [DbContext(typeof(DreamContext))]
+    [DbContext(typeof(DreamDbContext))]
     [Migration("20230504224610_AddDreamAndInterpretation")]
     partial class AddDreamAndInterpretation
     {

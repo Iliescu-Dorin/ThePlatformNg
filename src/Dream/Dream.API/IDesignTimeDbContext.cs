@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Design;
 
 namespace DreamData.API;
 
-public class DreamDbContextFactory : IDesignTimeDbContextFactory<DreamContext>
+public class DreamDbContextFactory : IDesignTimeDbContextFactory<DreamDbContext>
 {
-    public DreamContext CreateDbContext(string[] args)
+    public DreamDbContext CreateDbContext(string[] args)
     {
         IConfiguration localConfig = new ConfigurationBuilder()
             .AddJsonFile("appsettings.Development.json")
@@ -16,9 +16,9 @@ public class DreamDbContextFactory : IDesignTimeDbContextFactory<DreamContext>
 
         var dbConnectionString = configForDb.GetSection("DreamApi");
 
-        var identityDbContextOptionsBuilder = new DbContextOptionsBuilder<DreamContext>()
+        var identityDbContextOptionsBuilder = new DbContextOptionsBuilder<DreamDbContext>()
             .UseSqlServer(dbConnectionString.Value, opt => opt.MigrationsAssembly("DreamWebApi"));
 
-        return new DreamContext(identityDbContextOptionsBuilder.Options);
+        return new DreamDbContext(identityDbContextOptionsBuilder.Options);
     }
 }
