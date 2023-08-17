@@ -1,8 +1,9 @@
-﻿namespace Core.SharedKernel.Data.ValueObjects;
-[Serializable]
+namespace Core.SharedKernel.Data.ValueObjects;
+
 /// <summary>
 /// See: https://enterprisecraftsmanship.com/posts/value-object-better-implementation/
 /// </summary>
+[Serializable]
 public abstract class ValueObject : IComparable, IComparable<ValueObject>
 {
     private int? _cachedHashCode;
@@ -31,7 +32,7 @@ public abstract class ValueObject : IComparable, IComparable<ValueObject>
                 {
                     unchecked
                     {
-                        return current * 23 + (obj?.GetHashCode() ?? 0);
+                        return (current * 23) + (obj?.GetHashCode() ?? 0);
                     }
                 });
         }

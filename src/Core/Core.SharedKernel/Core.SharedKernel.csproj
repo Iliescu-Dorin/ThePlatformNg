@@ -1,14 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="Helpers\" />
-        <Folder Include="Helpers\" />
         <Folder Include="Interfaces\" />
     </ItemGroup>
 
@@ -18,10 +16,15 @@
         <PackageReference Include="Azure.Identity" />
         <PackageReference Include="Google.Apis.Auth" />
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
-        <PackageReference Include="Microsoft.AspNetCore.Identity" />
+        <PackageReference Include="Microsoft.Extensions.Identity.Core" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
         <PackageReference Include="Microsoft.EntityFrameworkCore" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="OneOf" />
+        <PackageReference Include="ValueOf" />
     </ItemGroup>
 
 </Project>

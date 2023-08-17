@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
@@ -43,13 +43,18 @@
 	  <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
 	  <PackageReference Include="Microsoft.Owin.Security" />
 	  <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" />
-	  <PackageReference Include="NWebsec.AspNetCore.Middleware" />
 	  <PackageReference Include="Swashbuckle.AspNetCore" />
+	  <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\Core.Services\Core.Services.csproj" />
     <ProjectReference Include="..\UserData.Application\UserData.Application.csproj" />
     <ProjectReference Include="..\UserData.Infrastructure\UserData.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Filters\" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,22 @@
+blank_issues_enabled: false
+contact_links:
+   - name: 🚨 Bug report | Bug submission
+     url: https://github.com/anjoy8/Blog.Core/issues/new
+     about: |
+       Please report bugs here.
+       Please file bugs here.
+   - name: 🙋 Feature request | new feature proposal
+     url: https://github.com/anjoy8/Blog.Core/issues/new
+     about: |
+       Please request features here.
+       Please submit new feature proposals here.
+   - name: 🤔 Consulting from the Blog.Core team | Consulting Author
+     url: https://github.com/anjoy8/Blog.Core/issues/new
+     about: |
+       Get technical support, project audits, app deployments, and custom development from the core Blog. Core team.
+       Consult the core Blog.Core team for help with technical support, project review, application deployment, and custom development.
+   - name: ❗️ All other issues | Other issues
+     url: https://github.com/anjoy8/Blog.Core/issues/new
+     about: |
+       Please create all other issues here.
+       Please create other types of questions here.

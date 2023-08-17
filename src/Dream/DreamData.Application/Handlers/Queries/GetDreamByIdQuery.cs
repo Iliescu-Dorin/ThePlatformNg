@@ -2,11 +2,13 @@ using Core.SharedKernel.DTO;
 using MediatR;
 
 namespace DreamData.Application.Handlers.Queries;
+
 public class GetDreamByIdQuery : IRequest<DreamDTO>
 {
-    public int ItemId { get; }
+    public int DreamId { get; }
+
     public GetDreamByIdQuery(int id)
     {
-        ItemId = id;
+        DreamId = id;
     }
 }

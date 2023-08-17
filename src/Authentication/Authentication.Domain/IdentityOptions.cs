@@ -1,4 +1,5 @@
 namespace Authentication.Domain;
+
 public class IdentityOptions
 {
     public bool RequiredDigit { get; set; }

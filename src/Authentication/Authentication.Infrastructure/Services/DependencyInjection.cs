@@ -1,8 +1,6 @@
 using Authentication.Domain;
 using Core.Services.Authentication;
 using Core.Services.DataEncryption;
-using Core.Services.Interfaces;
-using Core.Services.Jwt.Oauth;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
@@ -12,6 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
 namespace Authentication.Infrastructure.Services;
+
 public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastrucutre(this IServiceCollection services, IConfiguration configuration, IWebHostEnvironment environment)
@@ -69,6 +68,17 @@ public static class DependencyInjection
             options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromDays(identityOptionsConfig.LockoutTimeSpanInDays);
         })
         .AddEntityFrameworkStores<AuthDbContext>();
+
+        services.AddHealthChecks()
+                .AddDbContextCheck<Net6WebApiTemplateDbContext>(name: "Application Database");
+
+        services.AddDbContext<Net6WebApiTemplateDbContext>(options =>
+            options.UseSqlServer(configuration.GetConnectionString("Net6WebApiConnection"),
+            b => b.MigrationsAssembly(typeof(Net6WebApiTemplateDbContext).Assembly.FullName))
+            .LogTo(Console.WriteLine, LogLevel.Information)); // disable for production;
+
+        services.AddScoped<INet6WebApiTemplateDbContext>(provider =>
+            provider.GetService<Net6WebApiTemplateDbContext>());
 
         // Register Data Protection Services
         services.AddDataProtection()
