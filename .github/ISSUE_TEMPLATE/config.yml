@@ -1,22 +1,307 @@
 blank_issues_enabled: false
 contact_links:
-   - name: 🚨 Bug report | Bug submission
-     url: https://github.com/anjoy8/Blog.Core/issues/new
-     about: |
-       Please report bugs here.
-       Please file bugs here.
-   - name: 🙋 Feature request | new feature proposal
-     url: https://github.com/anjoy8/Blog.Core/issues/new
-     about: |
-       Please request features here.
-       Please submit new feature proposals here.
-   - name: 🤔 Consulting from the Blog.Core team | Consulting Author
-     url: https://github.com/anjoy8/Blog.Core/issues/new
-     about: |
-       Get technical support, project audits, app deployments, and custom development from the core Blog. Core team.
-       Consult the core Blog.Core team for help with technical support, project review, application deployment, and custom development.
-   - name: ❗️ All other issues | Other issues
-     url: https://github.com/anjoy8/Blog.Core/issues/new
-     about: |
-       Please create all other issues here.
-       Please create other types of questions here.
+  - name: 🚨 Bug report | Bug submission
+    url: https://github.com/Iliescu-Dorin/ThePlatformNg/issues/new
+    about: |
+      Please report bugs here.
+      Please file bugs here.
+  - name: 🙋 Feature request | new feature proposal
+    url: https://github.com/Iliescu-Dorin/ThePlatformNg/issues/new
+    about: |
+      Please request features here.
+      Please submit new feature proposals here.
+  - name: 🤔 Consulting from the Obscura Dreamlog team | Consulting Author
+    url: https://github.com/Iliescu-Dorin/ThePlatformNg/issues/new
+    about: |
+      Get technical support, project audits, app deployments, and custom development from the core Blog. Core team.
+      Consult the core Obscura Dreamlog team for help with technical support, project review, application deployment, and custom development.
+  - name: ❗️ All other issues | Other issues
+    url: https://github.com/Iliescu-Dorin/ThePlatformNg/issues/new
+    about: |
+      Please create all other issues here.
+      Please create other types of questions here.
+
+title: Introduction to GitHub
+description: If you are looking for a quick and fun introduction to GitHub, you've found it. This class will get you started using GitHub in less than an hour.
+template:
+  name: github-slideshow
+  repo: caption-this-template
+  description: "A robot powered training repository :robot:"
+preferences:
+  - type: radio
+    name: gitTool
+    label: Preferred Git tool
+    description: Learn right from the web UI, or using your chosen tool
+    options:
+      - label: Use the GitHub.com web interface
+        value: dotcom
+      - label: Use the command line
+        value: cli
+      - label: Use Visual Studio Code
+        value: vscode
+  - type: dropdown
+    name: language
+    label: Language
+    description: Choose your preferred language.
+    options:
+      - label: English
+        value: en
+      - label: Español
+        value: es
+      - label: 日本語
+        value: ja
+      - label: Français
+        value: fr
+before:
+  - type: updateBranchProtection
+  - type: createIssue
+    title: Getting Started with GitHub
+    body: 00_introduction.md
+    comments:
+      - 00_assign-yourself.md
+
+# Course artifacts:
+#   1. Issue: Getting started with GitHub
+#   2. Issue: Your first contribution
+#   3. PR: [Created by learner]
+
+steps:
+  # 1
+  - title: Assign yourself
+    description: Assign the first issue to yourself.
+    translations:
+      es:
+        title: Asígnate
+        description: Asígnate la primera propuesta.
+      fr:
+        title: Assignation
+        description: Assignez-vous la première Issue.
+      ja:
+        title: 担当者になろう
+        description: 初めてのイシューの担当者になりましょう。
+    event: issues.assigned
+    link: "{{ repoUrl }}/issues/1"
+    actions:
+      - type: gate
+        left: "%payload.assignee.login%"
+        operator: ===
+        right: "%user.username%"
+      - type: respond
+        with: 01_turn-on-gh-pages.md
+
+  # 2
+  - title: Turn on GitHub Pages
+    description: Turn on GitHub Pages in the settings page of the repository.
+    translations:
+      es:
+        title: Activa GitHub Pages
+        description: Activa GitHub Pages en la página de configuración del repositorio.
+      fr:
+        title: Activation de GitHub Pages
+        description: Activez GitHub Pages sur la page de configuration du dépôt.
+      ja:
+        title: GitHub Pagesを有効化しよう
+        description: リポジトリの設定画面でGitHub Pagesを有効化しましましょう。
+    event: page_build
+    link: "{{ repoUrl }}/issues/1"
+    actions:
+      - type: octokit
+        method: repos.getPages
+        owner: "%payload.repository.owner.login%"
+        repo: "%payload.repository.name%"
+        store:
+          pagesUrl: "{{ result.data.html_url }}"
+        action_id: pagesUrl
+      - type: respond
+        issue: Getting Started with GitHub
+        with: 02_close-issue.md
+
+  # 3
+  - title: Close an issue
+    description: Cease a conversation by closing an issue.
+    translations:
+      es:
+        title: Cierra una propuesta
+        description: Termina una conversación al cerrar una propuesta.
+      fr:
+        title: Fermer l'Issue
+        description: Achevez l'Issue en la cloturant.
+      ja:
+        title: Issueを閉じよう
+        description: Issueを閉じることで議論を終えましょう。
+
+    event: issues.closed
+    link: "{{ repoUrl }}/issues/1"
+    actions:
+      - type: createIssue
+        action_id: contrib_issue
+        title: Your first contribution
+        body: 03_your-first-contribution.md
+        comments:
+          - 03_create-a-branch.md
+        data:
+          thePayload: "%payload%"
+      - type: respond
+        with: 03_head-to-branch.md
+        data:
+          issueURL: "%actions.contrib_issue.data.html_url%"
+
+  # 4
+  - title: Create a branch
+    description: Create a branch for introducing new changes.
+    translations:
+      es:
+        title: Crea una rama
+        description: Crea una rama para introducir nuevos cambios.
+      fr:
+        title: Création d'une branche
+        description: Créez une branche afin d'introduire un changement.
+      ja:
+        title: ブランチを作ろう
+        description: 新しい変更をするためのブランチを作りましょう。
+    event: create
+    link: "{{ repoUrl }}/issues/2"
+    actions:
+      - type: respond
+        issue: Your first contribution
+        with: 04_commit-something.md
+        data:
+          thePayload: "%payload%"
+
+  # 5
+  - title: Commit a file
+    description: Commit your file to the branch.
+    translations:
+      es:
+        title: Confirma un archivo
+        description: Confirma un archivo a tu rama.
+      fr:
+        title: Soumettre un fichier
+        description: Ajoutez un fichier à votre branche.
+      ja:
+        title: ファイルをコミットしよう
+        description: ブランチにファイルをコミットしましょう。
+    event: push
+    link: "{{ repoUrl }}/issues/2"
+    actions:
+      - type: respond
+        issue: Your first contribution
+        with: 05_open-a-pr.md
+        data:
+          branch: "%payload.ref%"
+          url: "%payload.repository.html_url%/compare/%payload.ref%?expand=1"
+
+  # 6
+  - title: Open a pull request
+    description: Open a pull request to propose your new file to the codebase.
+    translations:
+      es:
+        title: Abre una solicitud de extracción
+        description: Abre una solicitud de extracción para proponer agregar tu nuevo archivo al proyecto.
+      fr:
+        title: Ouverture d'une Pull Request
+        description: Ouvrez une Pull Request afin de proposer l'ajout de votre fichier au projet.
+      ja:
+        title: プルリクエストをオープンしよう
+        description: 新しいファイルをコードベースに追加する提案をするためにプルリクエストをオープンしましょう。
+    event: pull_request
+    link: "{{ repoUrl }}/issues/2"
+    actions:
+      - type: gate
+        gates:
+          - left: "%payload.action%"
+            operator: ===
+            right: opened
+          - left: "%payload.action%"
+            operator: ===
+            right: edited
+          - left: "%payload.action%"
+            operator: ===
+            right: synchronize
+      - type: closeIssue
+        issue: Your first contribution
+      - type: gate
+        left: "%payload.pull_request.body%"
+        else:
+          - type: createReview
+            body: 06_fix-body.md
+            event: REQUEST_CHANGES
+      - type: gate
+        left: "%payload.pull_request.base.ref%"
+        operator: ===
+        right: main
+        else:
+          - type: createReview
+            body: 06_fix-base.md
+            event: REQUEST_CHANGES
+      - type: getTree
+        action_id: tree
+        recursive: true
+        sha: "%payload.pull_request.head.sha%"
+      - type: gate
+        left: "%actions.tree.data.tree%"
+        operator: includes
+        right: path:/_posts\/\d{4}-\d{2}-\d{2}-%user.username%\.md/
+        else:
+          - type: createReview
+            body: 06_fix-filename.md
+            event: REQUEST_CHANGES
+            data:
+              expected: _posts/0000-01-02-%user.username%.md
+              url: "%payload.pull_request.html_url%/files"
+      - type: createReview
+        body: 06_request-changes.md
+        event: "COMMENT"
+        data:
+          branch: "%payload.pull_request.head.ref%"
+          url: "%payload.pull_request.html_url%/files"
+
+  # 7
+  - title: Respond to a review
+    description: Respond to a PR review.
+    translations:
+      es:
+        title: Responde a una revisión
+        description: Responde a una revisión en tu solicitud de extracción.
+      fr:
+        title: Réponse à une revue
+        description: Répondez à la relecture de votre Pull Request.
+      ja:
+        title: レビューに対応しよう
+        description: プルリクエストへのレビューへの対応をしましょう。
+    event: pull_request.synchronize
+    link: "{{ repoUrl }}/pull/3"
+    actions:
+      - type: removeBranchProtection
+      - type: createReview
+        body: 07_pr-succeeds.md
+        event: APPROVE
+        data:
+          branch: "%payload.pull_request.head.ref%"
+
+  # 8
+  - title: Merge your pull request
+    description: Make your changes live by merging your PR.
+    translations:
+      es:
+        title: Fusiona tu solicitud de extracción
+        description: Publica tus cambios al fusionar tu solicitud de extracción.
+      fr:
+        title: Fusion de la Pull Request
+        description: Livrez vos changement en fusionant votre Pull Request.
+      ja:
+        title: プルリクエストをマージしよう
+        description: プルリクエストをマージすることで変更を取り込みましょう。
+    event: pull_request.closed
+    link: "{{ repoUrl }}/pull/3"
+    actions:
+      - type: gate
+        left: "%payload.pull_request.merged%"
+        else:
+          - type: respond
+            with: 08_reopen.md
+      - type: respond
+        with: 08_reminder-delete.md
+
+tags: ["Git", "GitHub Pages", "Branches", "Commits", "Pull Requests"]
+video: "sz6zfrQpCQg"
