@@ -8,7 +8,7 @@ public class ValidateAttribute : Attribute
 {
 }
 
-public static class ValidationFilter<T>
+public static class ValidationFilter
 {
     public static EndpointFilterDelegate ValidationFilterFactory(EndpointFilterFactoryContext context, EndpointFilterDelegate next)
     {
