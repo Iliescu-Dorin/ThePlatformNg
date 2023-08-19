@@ -1,7 +1,8 @@
-using Core.SharedKernel.DTO;
+using Core.SharedKernel.DTO.APICall;
 using Microsoft.AspNetCore.Identity;
 
 namespace Core.Services.Authentication;
+
 public class SignInManager : ISignInManager
 {
     private readonly SignInManager<ApplicationUser> _signInManager;

@@ -1,8 +1,8 @@
 using Core.SharedKernel.Data.Enums;
 using Core.SharedKernel.DTO;
+using Core.SharedKernel.DTO.APICall;
 using Core.SharedKernel.Exceptions;
 using MediatR;
-using UserData.Application.Handlers.CommandHandlers;
 using UserData.Application.Handlers.Commands;
 
 namespace UserData.API.Endpoints.V1;
@@ -32,7 +32,6 @@ public static class AuthEndpoints
                 return generatedOperation;
             });
 
-
         // POST /v1/token HTTP/1.1
         usersV1.MapPost("token", ValidateToken())
             .Accepts<AuthTokenDTO>("application/json")
@@ -47,8 +46,6 @@ public static class AuthEndpoints
                 parameter.Description = "The ID associated with the created Todo";
                 return generatedOperation;
             });
-
-
 
         usersV1.MapGet("/", () =>
                      new UserDTO[]
@@ -76,7 +73,6 @@ public static class AuthEndpoints
 
         usersV1.MapDelete("/{id:int}", (int id) => Results.NoContent())
                 .Produces(204);
-
     }
 
     private static Func<ValidateUserDTO, IMediator, Task<IResult>> ValidateToken()
@@ -106,7 +102,7 @@ public static class AuthEndpoints
         {
             try
             {
-                var request = new CreateUserCommandHandler(model);
+                var request = new CreateUserCommand(model);
                 var result = await mediator.Send(request);
                 return TypedResults.Created($"/v1/users/{model.Username}", result);
             }

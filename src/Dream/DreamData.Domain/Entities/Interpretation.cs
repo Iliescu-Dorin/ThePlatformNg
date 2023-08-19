@@ -1,4 +1,4 @@
-using Core.SharedKernel.Entities;
+using Core.SharedKernel.Data.Entities.Entity1;
 using Core.SharedKernel.Records;
 using DreamData.Domain.Enums;
 

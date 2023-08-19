@@ -1,4 +1,4 @@
-using Core.SharedKernel.Entities;
+using Core.SharedKernel.Data.Entities.Entity2;
 
 namespace Core.SharedKernel.DTO;
 public class DreamDTO : AuditableEntity

@@ -1,5 +1,5 @@
 using Core.Services.Filters;
-using Core.Services.ServiceExtensions;
+using Core.Services.Setup.ServiceExtensions;
 using Core.Services.WebApplications;
 using Microsoft.AspNetCore.Mvc;
 using UserData.API.Endpoints.V1;
@@ -30,6 +30,8 @@ public class Program
             ConfigureEnvironment.ProductionMode(app);
             EndpointsConfig(app);
         }
+
+        app.UseStaticFiles();
 
         LocalizationRequest.LocalizationRequestSetup(app);
 

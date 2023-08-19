@@ -1,4 +1,4 @@
-using Core.SharedKernel.Entities;
+using Core.SharedKernel.Data.Entities.Entity2;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;

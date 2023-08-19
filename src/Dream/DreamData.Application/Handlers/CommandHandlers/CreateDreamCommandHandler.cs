@@ -31,7 +31,7 @@ public class CreateItemCommandHandler : IRequestHandler<CreateDreamCommand, Drea
 
         var result = _validator.Validate(model);
 
-        _logger.LogInformation($"CreateItem Validation result: {result}");
+        _logger.LogInformation($"Create Item Validation result: {result}");
 
         if (!result.IsValid)
         {

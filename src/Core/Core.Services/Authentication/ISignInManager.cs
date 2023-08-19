@@ -1,4 +1,4 @@
-using Core.SharedKernel.DTO;
+using Core.SharedKernel.DTO.APICall;
 
 namespace Core.Services.Authentication;
 public interface ISignInManager

@@ -1,5 +1,5 @@
 using Core.Services.APIs.Interfaces;
-using Core.SharedKernel.Entities;
+using Core.SharedKernel.Data.Entities.Entity2;
 using Microsoft.EntityFrameworkCore;
 using UserData.Domain.Entities;
 using UserData.Infrastructure.EntityConfiguration;

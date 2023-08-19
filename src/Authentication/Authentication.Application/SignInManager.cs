@@ -1,6 +1,6 @@
 using Authentication.Domain;
 using Core.Services.Authentication;
-using Core.SharedKernel.DTO;
+using Core.SharedKernel.DTO.APICall;
 using Microsoft.AspNetCore.Identity;
 
 namespace Authentication.Application;

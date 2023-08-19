@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Handlers\QueryHandlers\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
 
 </Project>

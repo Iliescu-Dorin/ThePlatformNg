@@ -1,11 +1,14 @@
+using Newtonsoft.Json;
+
 namespace Core.SharedKernel.Helpers;
+
 /// <summary>
-/// 
+///
 /// </summary>
 public static class ConvertUtils
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="thisValue"></param>
     /// <returns></returns>
@@ -22,7 +25,7 @@ public static class ConvertUtils
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="thisValue"></param>
     /// <param name="errorValue"></param>
@@ -51,7 +54,7 @@ public static class ConvertUtils
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="thisValue"></param>
     /// <returns></returns>
@@ -67,7 +70,7 @@ public static class ConvertUtils
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="thisValue"></param>
     /// <param name="errorValue"></param>
@@ -84,7 +87,7 @@ public static class ConvertUtils
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="thisValue"></param>
     /// <returns></returns>
@@ -95,7 +98,7 @@ public static class ConvertUtils
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="thisValue"></param>
     /// <returns></returns>
@@ -105,7 +108,7 @@ public static class ConvertUtils
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="thisValue"></param>
     /// <param name="errorValue"></param>
@@ -119,7 +122,7 @@ public static class ConvertUtils
     public static bool IsNullOrEmpty(this object thisValue) => thisValue == null || thisValue == DBNull.Value || string.IsNullOrWhiteSpace(thisValue.ToString());
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="thisValue"></param>
     /// <returns></returns>
@@ -135,7 +138,7 @@ public static class ConvertUtils
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="thisValue"></param>
     /// <param name="errorValue"></param>
@@ -152,7 +155,7 @@ public static class ConvertUtils
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="thisValue"></param>
     /// <returns></returns>
@@ -168,7 +171,7 @@ public static class ConvertUtils
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="thisValue"></param>
     /// <param name="errorValue"></param>
@@ -185,7 +188,7 @@ public static class ConvertUtils
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="thisValue"></param>
     /// <returns></returns>
@@ -199,7 +202,6 @@ public static class ConvertUtils
 
         return reval;
     }
-
 
     /// <summary>
     /// 获取当前时间的时间戳

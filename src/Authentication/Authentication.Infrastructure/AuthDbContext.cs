@@ -2,7 +2,7 @@
 using Authentication.Domain;
 using Authentication.Infrastructure.EntityTypeConfigurations;
 using Core.Services.APIs.Interfaces;
-using Core.SharedKernel.Entities;
+using Core.SharedKernel.Data.Entities.Entity2;
 using Duende.IdentityServer.EntityFramework.Options;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.EntityFrameworkCore;

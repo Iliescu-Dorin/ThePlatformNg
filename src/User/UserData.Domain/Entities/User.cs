@@ -1,6 +1,6 @@
 using Core.SharedKernel.Constants;
+using Core.SharedKernel.Data.Entities.Entity1;
 using Core.SharedKernel.Data.Enums;
-using Core.SharedKernel.Entities;
 using System.Runtime;
 
 namespace UserData.Domain.Entities;

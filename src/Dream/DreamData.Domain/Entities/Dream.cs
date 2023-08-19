@@ -1,4 +1,4 @@
-using Core.SharedKernel.Entities;
+using Core.SharedKernel.Data.Entities.Entity1;
 
 namespace DreamData.Domain.Entities;
 // Or public class Dream : AuditableEntity  similar to https://github.dev/referbruv/ContainerNinja.CleanArchitecture/blob/9a725d3db2e287580a65319d5717c848fad32551/API/ContainerNinja.Core/ServiceExtensions.cs#L21#L65

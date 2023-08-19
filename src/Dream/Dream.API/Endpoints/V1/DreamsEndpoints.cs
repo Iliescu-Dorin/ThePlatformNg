@@ -1,6 +1,10 @@
 using Core.SharedKernel.DTO;
+using Core.SharedKernel.DTO.APICall;
 using Core.SharedKernel.Exceptions;
+using DreamData.Application.Handlers.Commands;
+using FluentValidation;
 using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OutputCaching;
 
 public static class DreamsEndpoints
@@ -9,15 +13,16 @@ public static class DreamsEndpoints
     {
         var dreams = app.NewVersionedApi("Dreams");
         var dreamsV1 = dreams.MapGroup("/api/dream")
+                            .AddEndpointFilterFactory(ValidationFilter.ValidationFilterFactory)
                             .HasDeprecatedApiVersion(0.9)
                             .HasApiVersion(1.0);
 
-        dreamsV1.MapPost("dream", Create())
+        dreamsV1.MapPost("dream", Create)
+            .WithName("CreateDream")
             .Accepts<DreamDTO>("application/json")
             .Produces<DreamDTO>(StatusCodes.Status201Created)
             .Produces(StatusCodes.Status400BadRequest)
             .MapToApiVersion(1.0)
-            .WithName("CreateDream")
             .WithOpenApi(generatedOperation =>
             {
                 var parameter = generatedOperation.Parameters[0];
@@ -84,20 +89,18 @@ public static class DreamsEndpoints
         };
     }
 
-    private static Func<CreateOrUpdateDreamDTO, IMediator, Task<IResult>> Create()
+    // Most Updated
+    private static async Task<IResult> Create([FromBody] CreateOrUpdateDreamDTO model, IValidator<CreateOrUpdateDreamDTO>, IMediator mediator)
     {
-        return async (CreateOrUpdateDreamDTO model, IMediator mediator) =>
+        try
         {
-            try
-            {
-                var request = new CreateDreamCommandHandler(model);
-                var result = await mediator.Send(request);
-                return TypedResults.Created($"/v1/dreams/{model.Title}", result);
-            }
-            catch (InvalidRequestBodyException ex)
-            {
-                return Results.BadRequest(ResultDTO.Failure(ex.Errors));
-            }
-        };
+            var request = new CreateDreamCommand(model);
+            var result = await mediator.Send(request);
+            return TypedResults.Created($"/v1/dreams/{model.Title}", result);
+        }
+        catch (InvalidRequestBodyException ex)
+        {
+            return Results.BadRequest(ResultDTO.Failure(ex.Errors));
+        }
     }
 }

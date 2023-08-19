@@ -29,7 +29,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Dream.Infrastructure\DreamData.Infrastructure.csproj" />
+    <ProjectReference Include="..\DreamData.Application\DreamData.Application.csproj" />
     <ProjectReference Include="..\DreamData.Infrastructure\DreamData.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Filters\" />
   </ItemGroup>
 
 </Project>

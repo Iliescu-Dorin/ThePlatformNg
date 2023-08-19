@@ -9,6 +9,7 @@ public class Program
         builder.Services.AddAuthorization();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+
         builder.Services.AddOutputCache()
             .AddStackExchangeRedisOutputCache(x =>             // new Microsoft .NET 8 Redis Cache Extension https://www.youtube.com/watch?v=_bg5dGnudPs&ab_channel=NickChapsas
             {
