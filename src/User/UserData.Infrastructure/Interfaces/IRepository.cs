@@ -1,4 +1,4 @@
-using Core.SharedKernel.Interfaces;
+using Core.Services.Interfaces;
 using UserData.Domain.Entities;
 
 namespace UserData.Infrastructure.Interfaces;

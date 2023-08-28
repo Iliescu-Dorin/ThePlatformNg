@@ -1,4 +1,4 @@
-namespace Core.SharedKernel.Interfaces;
+namespace Core.Services.Interfaces;
 public interface IRepository<T>
 {
     Task<IEnumerable<T>> GetAll();

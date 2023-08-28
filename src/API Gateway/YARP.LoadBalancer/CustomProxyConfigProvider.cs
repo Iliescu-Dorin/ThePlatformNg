@@ -1,99 +1,95 @@
-using Microsoft.Extensions.Primitives;
-using System.Collections.Generic;
-using System.Threading;
 using Yarp.ReverseProxy.Configuration;
 using Yarp.ReverseProxy.LoadBalancing;
 using Yarp.ReverseProxy.Transforms;
 
-namespace YARP.LoadBalancer
+namespace YARP.LoadBalancer;
+
+public partial class CustomProxyConfigProvider : IProxyConfigProvider
 {
-    public partial class CustomProxyConfigProvider : IProxyConfigProvider
+    private CustomMemoryConfig _config;
+
+    public CustomProxyConfigProvider()
     {
-        private CustomMemoryConfig _config;
+        var routeConfigs = CreateRouteConfigs();
+        var clusterConfigs = CreateClusterConfigs();
 
-        public CustomProxyConfigProvider()
+        _config = new CustomMemoryConfig(routeConfigs, clusterConfigs);
+    }
+
+    public IProxyConfig GetConfig() => _config;
+
+    public void Update(IReadOnlyList<RouteConfig> routes, IReadOnlyList<ClusterConfig> clusters)
+    {
+        var oldConfig = _config;
+        _config = new CustomMemoryConfig(routes, clusters);
+        oldConfig.SignalChange();
+    }
+
+    private IEnumerable<string> GetMicroservicesFromDockerCompose()
+    {
+        return new List<string>
         {
-            var routeConfigs = CreateRouteConfigs();
-            var clusterConfigs = CreateClusterConfigs();
+            "user.api",
+            "notification.api",
+            "authentication.api",
+            "gamification.api",
+            "dreamdata.api",
+            "dreamreport.api",
+            "dreamscore.api",
+            "foodanalyzer.api",
+            "dreamanalyzer.api",
+            "blog.api"
+        };
+    }
 
-            _config = new CustomMemoryConfig(routeConfigs, clusterConfigs);
-        }
+    private List<RouteConfig> CreateRouteConfigs()
+    {
+        var routeConfigs = new List<RouteConfig>();
 
-        public IProxyConfig GetConfig() => _config;
-
-        public void Update(IReadOnlyList<RouteConfig> routes, IReadOnlyList<ClusterConfig> clusters)
+        foreach (var service in GetMicroservicesFromDockerCompose())
         {
-            var oldConfig = _config;
-            _config = new CustomMemoryConfig(routes, clusters);
-            oldConfig.SignalChange();
-        }
-
-        private IEnumerable<string> GetMicroservicesFromDockerCompose()
-        {
-            return new List<string>
+            var routeConfig = new RouteConfig
             {
-                "user.api",
-                "notification.api",
-                "authentication.api",
-                "gamification.api",
-                "dreamdata.api",
-                "dreamreport.api",
-                "dreamscore.api",
-                "foodanalyzer.api",
-                "dreamanalyzer.api",
-                "blog.api"
+                RouteId = $"{service}_route",
+                ClusterId = $"{service}_cluster",
+                Match = new RouteMatch
+                {
+                    Path = $"/{service}{{**catch-all}}"
+                }
             };
+
+            routeConfig = routeConfig
+                .WithTransformPathRemovePrefix(prefix: $"/{service}")
+                .WithTransformResponseHeader(headerName: "Source", value: "YARP", append: true);
+
+            routeConfigs.Add(routeConfig);
         }
 
-        private List<RouteConfig> CreateRouteConfigs()
+        return routeConfigs;
+    }
+
+    private List<ClusterConfig> CreateClusterConfigs()
+    {
+        var clusterConfigs = new List<ClusterConfig>();
+
+        foreach (var service in GetMicroservicesFromDockerCompose())
         {
-            var routeConfigs = new List<RouteConfig>();
+            var destinationConfig = new DestinationConfig { Address = $"http://{service}:80" };
 
-            foreach (var service in GetMicroservicesFromDockerCompose())
+            var clusterConfig = new ClusterConfig
             {
-                var routeConfig = new RouteConfig
+                ClusterId = $"{service}_cluster",
+                LoadBalancingPolicy = LoadBalancingPolicies.RoundRobin,
+                Destinations = new Dictionary<string, DestinationConfig>
                 {
-                    RouteId = $"{service}_route",
-                    ClusterId = $"{service}_cluster",
-                    Match = new RouteMatch
-                    {
-                        Path = $"/{service}{{**catch-all}}"
-                    }
-                };
+                    { $"{service}_destination1", new DestinationConfig { Address = $"https://localhost:5001/" } },
+                    { $"{service}_destination2", new DestinationConfig { Address = $"https://localhost:5002/" } }
+                }
+            };
 
-                routeConfig = routeConfig
-                    .WithTransformPathRemovePrefix(prefix: $"/{service}")
-                    .WithTransformResponseHeader(headerName: "Source", value: "YARP", append: true);
-
-                routeConfigs.Add(routeConfig);
-            }
-
-            return routeConfigs;
+            clusterConfigs.Add(clusterConfig);
         }
 
-        private List<ClusterConfig> CreateClusterConfigs()
-        {
-            var clusterConfigs = new List<ClusterConfig>();
-
-            foreach (var service in GetMicroservicesFromDockerCompose())
-            {
-                var destinationConfig = new DestinationConfig { Address = $"http://{service}:80" };
-
-                var clusterConfig = new ClusterConfig
-                {
-                    ClusterId = $"{service}_cluster",
-                    LoadBalancingPolicy = LoadBalancingPolicies.RoundRobin,
-                    Destinations = new Dictionary<string, DestinationConfig>
-                    {
-                        { $"{service}_destination1", new DestinationConfig { Address = $"http://{service}:80" } },
-                        { $"{service}_destination2", new DestinationConfig { Address = $"https://localhost:5002/" } }
-                    }
-                };
-
-                clusterConfigs.Add(clusterConfig);
-            }
-
-            return clusterConfigs;
-        }
+        return clusterConfigs;
     }
 }

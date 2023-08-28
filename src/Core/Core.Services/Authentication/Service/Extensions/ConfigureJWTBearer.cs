@@ -1,3 +1,8 @@
+using Authentication.Application.Interfaces;
+using Authentication.Application.Oauth;
+using Core.Services.Authentication.Interfaces;
+using Core.Services.Authentication.Oauth;
+using Core.Services.Authentication.Options;
 using Core.SharedKernel.Config;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
@@ -6,13 +11,50 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Owin.Security.DataHandler.Encoder;
+using System.Text;
 
-namespace Core.Services.Setup.ServiceExtensions;
+namespace Core.Services.Authentication.Service.Extensions;
 
 public static class ConfigureJWTBearer
 {
     public static void AddJWTBearerConfiguration(this IServiceCollection services, IConfiguration configuration)
     {
+        // Register OAuth services
+        services.AddTransient<IJwtTokenManager, JwtTokenManager>();
+        services.AddScoped<ISignInManager, SignInManager>();
+
+        // Configure JWT Authentication and Authorization
+        var jwtSettings = new JwtSettings();
+        configuration.Bind(nameof(JwtSettings), jwtSettings);
+        services.AddSingleton(jwtSettings);
+
+        var tokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = jwtSettings.ValidateIssuerSigningKey,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtSettings.Secret)),
+            ValidateIssuer = jwtSettings.ValidateIssuer,
+            ValidIssuer = jwtSettings.Issuer,
+            ValidateAudience = jwtSettings.ValidateAudience,
+            ValidAudience = jwtSettings.Audience,
+            RequireExpirationTime = jwtSettings.RequireExpirationTime,
+            ValidateLifetime = jwtSettings.ValidateLifetime,
+            ClockSkew = jwtSettings.Expiration
+        };
+        services.AddSingleton(tokenValidationParameters);
+
+        services.ConfigureOptions<ConfigureJwtBearerOptions>()
+            .AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options =>
+            {
+                options.SaveToken = true;
+                options.TokenValidationParameters = tokenValidationParameters;
+            });
+
         // Method 1
         services.Configure<JWTTokenConfig>(configuration.GetSection("JwtTokenConfig"))
             .AddSingleton(x => x.GetRequiredService<IOptions<JWTTokenConfig>>().Value);

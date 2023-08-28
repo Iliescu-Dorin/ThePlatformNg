@@ -2,7 +2,7 @@ using Amazon;
 using Amazon.SecretsManager;
 using Amazon.SecretsManager.Model;
 using Core.Services.Caching;
-using Core.Services.Cloud.Interfaces;
+using Core.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 
 namespace Core.Services.Cloud.AWS;

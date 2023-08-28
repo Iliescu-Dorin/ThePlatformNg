@@ -1,4 +1,4 @@
-namespace Core.Services.Cloud.Interfaces;
+namespace Core.Services.Interfaces;
 
 public interface ISecretsProvider
 {

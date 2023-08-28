@@ -1,7 +1,7 @@
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 using Core.Services.Caching;
-using Core.Services.Cloud.Interfaces;
+using Core.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 
 namespace Core.Services.Cloud.Azure;

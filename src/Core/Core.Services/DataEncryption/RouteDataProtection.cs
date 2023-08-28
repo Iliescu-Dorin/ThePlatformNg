@@ -1,3 +1,4 @@
+using Core.Services.Interfaces;
 using Core.SharedKernel.Data.Enums;
 using Microsoft.AspNetCore.DataProtection;
 

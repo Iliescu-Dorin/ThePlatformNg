@@ -1,5 +1,4 @@
-using Core.Services.Caching;
-using Core.Services.Cloud.Interfaces;
+using Core.Services.Interfaces;
 using Google.Cloud.SecretManager.V1;
 using Grpc.Core;
 using Microsoft.Extensions.Configuration;

@@ -1,5 +1,6 @@
+using Blog.WebApi;
 
-namespace Blog.WebApi
+namespace Blog.API
 {
     public class Program
     {
@@ -12,7 +13,6 @@ namespace Blog.WebApi
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
 

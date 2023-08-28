@@ -1,4 +1,4 @@
-﻿using Core.SharedKernel.DTO;
+using Core.SharedKernel.DTO;
 using MediatR;
 
 namespace UserData.Application.Handlers.Commands;

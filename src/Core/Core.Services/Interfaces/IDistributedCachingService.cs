@@ -1,4 +1,4 @@
-namespace Core.Services.Caching;
+namespace Core.Services.Interfaces;
 
 public interface IDistributedCachingService
 {

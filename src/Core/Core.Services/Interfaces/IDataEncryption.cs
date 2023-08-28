@@ -1,4 +1,4 @@
-namespace Core.Services.DataEncryption;
+namespace Core.Services.Interfaces;
 public interface IDataEncryption
 {
     string Encrypt(string plainInput);

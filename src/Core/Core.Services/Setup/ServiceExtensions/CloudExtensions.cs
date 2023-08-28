@@ -3,7 +3,7 @@ using Core.Services.Cloud.AWS;
 using Core.Services.Cloud.Azure;
 using Core.Services.Cloud.GCP;
 using Core.Services.Cloud.IBM;
-using Core.Services.Cloud.Interfaces;
+using Core.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

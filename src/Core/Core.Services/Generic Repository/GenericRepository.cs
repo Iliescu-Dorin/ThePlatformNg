@@ -1,4 +1,4 @@
-using Core.SharedKernel.Interfaces;
+using Core.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace UserData.Infrastructure.Repositories.Generic;

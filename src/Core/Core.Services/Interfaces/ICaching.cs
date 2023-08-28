@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Caching.Distributed;
 
-namespace Core.Services.Caches;
+namespace Core.Services.Interfaces;
 /// <summary>
 /// Cache abstraction interface, encapsulating based on IDistributedCache
 /// </summary>

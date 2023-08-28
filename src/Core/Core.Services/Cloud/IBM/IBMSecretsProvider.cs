@@ -1,19 +1,17 @@
-using Core.Services.Caching;
-using Core.Services.Cloud.Interfaces;
+using Core.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 
 namespace Core.Services.Cloud.IBM;
+
 public class IBMSecretsProvider : ISecretsProvider
 {
     private readonly IDistributedCachingService _cachingService;
     private readonly IConfiguration _configuration;
 
-
     public IBMSecretsProvider(IDistributedCachingService cachingService, IConfiguration configuration)
     {
         _cachingService = cachingService;
         _configuration = configuration;
-
     }
 
     public async Task<string> GetCachedSecretAsync(string cacheKey)
@@ -54,5 +52,4 @@ public class IBMSecretsProvider : ISecretsProvider
             throw new Exception($"Failed to fetch secret from IBM Key Protect. Status code: {response.StatusCode}");
         }
     }
-
 }

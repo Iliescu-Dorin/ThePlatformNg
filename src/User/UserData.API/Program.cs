@@ -1,6 +1,9 @@
+using Core.Services.DataEncryption;
 using Core.Services.Filters;
+using Core.Services.Interfaces;
 using Core.Services.Setup.ServiceExtensions;
 using Core.Services.WebApplications;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Mvc;
 using UserData.API.Endpoints.V1;
 using UserData.Application.Services;
@@ -16,6 +19,29 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         ConfigureServices(builder.Services, builder.Configuration);
+
+        //// Register Identity DbContext and Server
+        //    .builder.Services.AddDbContext<AuthDbContext>(options =>
+        //    options.UseSqlServer(builder.Configuration.GetConnectionString("AuthAPI")));
+
+        //var identityOptionsConfig = new IdentityOptions();
+        //builder.Configuration.GetSection(nameof(IdentityOptions)).Bind(identityOptionsConfig);
+
+        //    .builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
+        //{
+        //    options.Password.RequiredLength = identityOptionsConfig.RequiredLength;
+        //    options.Password.RequireDigit = identityOptionsConfig.RequiredDigit;
+        //    options.Password.RequireLowercase = identityOptionsConfig.RequireLowercase;
+        //    options.Password.RequiredUniqueChars = identityOptionsConfig.RequiredUniqueChars;
+        //    options.Password.RequireUppercase = identityOptionsConfig.RequireUppercase;
+        //    options.Lockout.MaxFailedAccessAttempts = identityOptionsConfig.MaxFailedAttempts;
+        //    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromDays(identityOptionsConfig.LockoutTimeSpanInDays);
+        //})
+        //.AddEntityFrameworkStores<AuthDbContext>();
+
+        // Register Data Protection Services
+        builder.Services.AddDataProtection().SetDefaultKeyLifetime(TimeSpan.FromDays(30));
+        builder.Services.AddSingleton<IDataEncryption, RouteDataProtection>();
 
         // App
         var app = builder.Build();
@@ -74,9 +100,6 @@ public class Program
 
         app.UseHttpsRedirection();
         app.UseRouting();
-
-        app.UseAuthentication();
-        app.UseAuthorization();
 
         EndpointsHelper.AddHealthCheckEndpoint(app);
 

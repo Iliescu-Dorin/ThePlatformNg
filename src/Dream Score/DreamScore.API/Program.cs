@@ -1,5 +1,6 @@
+using DreamScore.WebApi;
 
-namespace DreamScore.WebApi
+namespace DreamScore.API
 {
     public class Program
     {
@@ -12,7 +13,6 @@ namespace DreamScore.WebApi
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
 

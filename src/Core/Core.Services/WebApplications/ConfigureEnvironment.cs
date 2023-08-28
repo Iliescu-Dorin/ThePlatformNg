@@ -20,6 +20,8 @@ public static class ConfigureEnvironment
         {
             ConfigureSwaggerUI.ConfigureSwaggerUISetup(app, options);
         });
+        app.UseAuthentication();
+        app.UseAuthorization();
     }
 
     public static void ProductionMode(WebApplication app)
@@ -39,5 +41,8 @@ public static class ConfigureEnvironment
 
         // Enable IP Rate Limiting Middleware
         app.UseIpRateLimiting();
+
+        app.UseAuthentication();
+        app.UseAuthorization();
     }
 }

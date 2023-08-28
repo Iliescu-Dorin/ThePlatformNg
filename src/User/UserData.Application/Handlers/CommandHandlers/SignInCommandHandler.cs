@@ -1,10 +1,13 @@
+using Authentication.Application.Interfaces;
 using Core.Services.Authentication;
-using Core.Services.Interfaces;
-using Core.Services.Jwt.Oauth;
+using Core.Services.Authentication.Interfaces;
+using Core.Services.Authentication.Oauth;
+using Core.SharedKernel.Exceptions;
 using MediatR;
 using UserData.Application.Handlers.Commands;
 
 namespace UserData.Application.Handlers.CommandHandlers;
+
 public class SignInCommandHandler : IRequestHandler<SignInCommand, AuthResult>
 {
     private readonly ISignInManager _signInManager;
@@ -18,7 +21,7 @@ public class SignInCommandHandler : IRequestHandler<SignInCommand, AuthResult>
 
     public async Task<AuthResult> Handle(SignInCommand request, CancellationToken cancellationToken)
     {
-        // validate username & password 
+        // validate username & password
         var result = await _signInManager.PasswordSignInAsync(request.Username, request.Password, false, false);
 
         // Throw exception if credential validation failed

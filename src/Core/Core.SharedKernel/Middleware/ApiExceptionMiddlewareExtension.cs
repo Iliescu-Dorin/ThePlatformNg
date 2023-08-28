@@ -1,0 +1,73 @@
+using Core.SharedKernel.Constants;
+using Core.SharedKernel.DTO.APICall;
+using Core.SharedKernel.Exceptions;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Http;
+
+namespace Core.SharedKernel.Middleware;
+
+public static class ApiExceptionMiddlewareExtension
+{
+    public static IApplicationBuilder UseApiExceptionHandler(this IApplicationBuilder builder)
+    {
+        return builder.UseExceptionHandler(app =>
+        {
+            app.Run(async context => await HandleExceptionAsync(context));
+        });
+    }
+
+    private static async Task HandleExceptionAsync(HttpContext context)
+    {
+        var exceptionFeature = context.Features.Get<IExceptionHandlerFeature>();
+        if (exceptionFeature == null)
+        {
+            return;
+        }
+
+        var httpResponse = context.Response;
+        var ex = exceptionFeature.Error;
+
+        // validation exception
+        if (ex is ValidationException validationException)
+        {
+            httpResponse.StatusCode = StatusCodes.Status400BadRequest;
+
+            var errors = validationException.Errors.Select(x =>
+            {
+                return x.ErrorCode;
+            });
+            var validationError = ApiResponse<object>.Error(errors);
+            await httpResponse.WriteAsJsonAsync(validationError);
+
+            return;
+        }
+
+        // EntityNotFound exception
+        if (ex is EntityNotFoundException)
+        {
+            httpResponse.StatusCode = StatusCodes.Status404NotFound;
+
+            var entityNotFoundError = ApiResponse<object>.Error(ErrorCodes.ResourceNotFound);
+            await httpResponse.WriteAsJsonAsync(entityNotFoundError);
+
+            return;
+        }
+
+        // BusinessException
+        if (ex is BusinessException businessException)
+        {
+            httpResponse.StatusCode = StatusCodes.Status422UnprocessableEntity;
+
+            var businessError = ApiResponse<object>.Error(businessException.Message);
+            await httpResponse.WriteAsJsonAsync(businessError);
+
+            return;
+        }
+
+        // other exception
+        httpResponse.StatusCode = StatusCodes.Status500InternalServerError;
+        var error = ApiResponse<object>.Error(ErrorCodes.InternalServerError);
+        await httpResponse.WriteAsJsonAsync(error);
+    }
+}

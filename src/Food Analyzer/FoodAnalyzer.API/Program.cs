@@ -1,5 +1,6 @@
+using FoodAnalyzer.WebApi;
 
-namespace FoodAnalyzer.WebApi;
+namespace FoodAnalyzer.API;
 
 public class Program
 {
@@ -12,7 +13,6 @@ public class Program
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
 
         var app = builder.Build();
 

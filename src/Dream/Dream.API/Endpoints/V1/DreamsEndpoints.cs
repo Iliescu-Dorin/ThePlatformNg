@@ -12,12 +12,13 @@ public static class DreamsEndpoints
     public static void MapDreamsEndpoints(this WebApplication app)
     {
         var dreams = app.NewVersionedApi("Dreams");
-        var dreamsV1 = dreams.MapGroup("/api/dream")
+        var dreamsV1 = dreams.MapGroup("/api/dreams")
                             .AddEndpointFilterFactory(ValidationFilter.ValidationFilterFactory)
                             .HasDeprecatedApiVersion(0.9)
-                            .HasApiVersion(1.0);
+                            .HasApiVersion(1.0)
+                            .RequireAuthorization();
 
-        dreamsV1.MapPost("dream", Create)
+        dreamsV1.MapPost("", Create)
             .WithName("CreateDream")
             .Accepts<DreamDTO>("application/json")
             .Produces<DreamDTO>(StatusCodes.Status201Created)
@@ -30,7 +31,7 @@ public static class DreamsEndpoints
                 return generatedOperation;
             });
 
-        dreamsV1.MapGet("/", () =>
+        dreamsV1.MapGet("", () =>
                      new DreamDTO[]
                      {
                          new(){ Title = "Lucid Dreaming", Description = "Exploring the world of lucid dreams.", Date = DateTime.UtcNow },
@@ -40,19 +41,19 @@ public static class DreamsEndpoints
                 .CacheOutput(x => x.Expire(TimeSpan.FromMinutes(5)).Tag("Dreams")) // new Microsoft .NET 8 Redis Cache Extension
                 .Produces<IEnumerable<DreamDTO>>();
 
-        dreamsV1.MapGet("/inval", async (IOutputCacheStore store) =>
+        dreamsV1.MapGet("inval", async (IOutputCacheStore store) =>
         {
             await store.EvictByTagAsync("Dreams", CancellationToken.None);
             return Results.Ok();
         });
 
-        dreamsV1.MapGet("/{id:int}", (int id) => new DreamDTO() { Title = "Lucid Dreaming", Description = "Exploring the world of lucid dreams.", Date = DateTime.UtcNow })
+        dreamsV1.MapGet("{id:int}", (int id) => new DreamDTO() { Title = "Lucid Dreaming", Description = "Exploring the world of lucid dreams.", Date = DateTime.UtcNow })
                 .Produces<DreamDTO>()
                 .WithName("GetDreamById")
                 .Produces<DreamDTO>(StatusCodes.Status201Created)
                 .Produces(StatusCodes.Status404NotFound);
 
-        dreamsV1.MapPost("/", (HttpRequest request, DreamDTO dream) =>
+        dreamsV1.MapPost("", (HttpRequest request, DreamDTO dream) =>
         {
             var scheme = request.Scheme;
             var host = request.Host;
@@ -63,7 +64,7 @@ public static class DreamsEndpoints
                 .Produces<DreamDTO>(201)
                 .Produces(400);
 
-        dreamsV1.MapDelete("/{id:int}", (int id) => Results.NoContent())
+        dreamsV1.MapDelete("{id:int}", (int id) => Results.NoContent())
                 .WithName("DeleteDreamWithId")
                 .Produces(204);
     }
@@ -90,7 +91,7 @@ public static class DreamsEndpoints
     }
 
     // Most Updated
-    private static async Task<IResult> Create([FromBody] CreateOrUpdateDreamDTO model, IValidator<CreateOrUpdateDreamDTO>, IMediator mediator)
+    private static async Task<IResult> Create([FromBody] CreateOrUpdateDreamDTO model, IMediator mediator)
     {
         try
         {

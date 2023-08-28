@@ -1,13 +1,15 @@
 using Alachisoft.NCache.Caching.Distributed;
 using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
+using Core.Services.Authentication.Interfaces;
+using Core.Services.Authentication.Jwt;
+using Core.Services.Authentication.Options;
+using Core.Services.Authentication.Service.Extensions;
 using Core.Services.Caching;
 using Core.Services.Filters;
 using Core.Services.Interfaces;
-using Core.Services.Jwt;
 using Core.Services.Options;
 using FluentValidation;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
@@ -156,7 +158,7 @@ public static class ServiceExtensions
         services.AddSwaggerGen(options =>
         {
             options.OperationFilter<SwaggerDefaultValues>();
-            options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+            options.AddSecurityDefinition("Bearer-ApiKey-OAith2", new OpenApiSecurityScheme
             {
                 Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
                 Name = "Authorization",
@@ -176,6 +178,30 @@ public static class ServiceExtensions
                         Scheme = "oauth2",
                         Name = "Bearer",
                         In = ParameterLocation.Header,
+                    },
+                    new List<string>()
+                }
+            });
+            // Only through HTTP
+            options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+            {
+                Scheme = "Bearer",
+                BearerFormat = "JWT",
+                In = ParameterLocation.Header,
+                Name = "Authorization",
+                Description = "Bearer Authentication with JWT Token. Example: \"Authorization: Bearer {token}\"",
+                Type = SecuritySchemeType.Http // ApiKey, OpenIdConnect or OAuth2
+            });
+            options.AddSecurityRequirement(new OpenApiSecurityRequirement
+            {
+                {
+                    new OpenApiSecurityScheme
+                    {
+                        Reference = new OpenApiReference
+                        {
+                            Type = ReferenceType.SecurityScheme,
+                            Id = "Bearer"
+                        }
                     },
                     new List<string>()
                 }
@@ -245,22 +271,6 @@ public static class ServiceExtensions
             setup.GroupNameFormat = "'v'VVV";
             setup.SubstituteApiVersionInUrl = true;
         });
-
-        services.ConfigureOptions<ConfigureSwaggerOptions>()
-            .AddSwaggerGen(options =>
-            {
-                // for further customization
-                // options.OperationFilter<DefaultValuesFilter>();
-            });
-
-        return services;
-    }
-
-    public static IServiceCollection AddJwtBearerAuthentication(this IServiceCollection services)
-    {
-        services.ConfigureOptions<ConfigureJwtBearerOptions>()
-            .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddJwtBearer();
 
         return services;
     }

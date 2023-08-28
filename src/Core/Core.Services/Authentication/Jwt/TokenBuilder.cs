@@ -3,7 +3,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace Core.Services.Jwt;
+namespace Core.Services.Authentication.Jwt;
 public class TokenBuilder
 {
     private string _issuer;

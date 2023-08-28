@@ -1,10 +1,10 @@
-using Core.Services.Interfaces;
+using Core.Services.Authentication.Interfaces;
 using Core.SharedKernel.Config;
 using Core.SharedKernel.DTO;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
-namespace Core.Services.Jwt;
+namespace Core.Services.Authentication.Jwt;
 public class TokenService : ITokenService
 {
     private readonly JWTTokenConfig _config;

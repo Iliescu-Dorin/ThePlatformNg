@@ -1,3 +1,5 @@
+using Authentication.Domain;
+using Core.Services.Authentication.Interfaces;
 using Core.SharedKernel.DTO.APICall;
 using Microsoft.AspNetCore.Identity;
 

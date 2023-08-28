@@ -1,4 +1,4 @@
-using Core.SharedKernel.Interfaces;
+using Core.Services.Interfaces;
 using DreamData.Domain.Entities;
 
 namespace DreamData.Infrastructure.Interfaces;

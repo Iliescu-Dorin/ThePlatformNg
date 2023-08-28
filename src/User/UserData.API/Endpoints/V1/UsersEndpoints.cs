@@ -1,7 +1,8 @@
 using Core.SharedKernel.DTO;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
-using System.Net.Http.Headers;
 using UserData.Domain.Entities;
 using UserData.Infrastructure;
 
@@ -17,7 +18,9 @@ public static class UsersEndpoints
         app.MapGet("/users/{id}", Get)
             .WithTags("UsersGroup");
 
-        app.MapGet("/users", Create)
+        app.MapGet("/users",
+            [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
+        (UserDbContext db, User user) => Create)
             .Produces<UserDTO>(StatusCodes.Status201Created)
             .Produces(StatusCodes.Status400BadRequest)
             .WithName("CreateUser")
@@ -47,6 +50,7 @@ public static class UsersEndpoints
         var result = await db.Users.ToListAsync();
         return TypedResults.Ok(result);
     }
+
     //best example of minimal API
     public static async Task<Results<Ok<User>, NotFound>> Get(UserDbContext db, string id)
     {

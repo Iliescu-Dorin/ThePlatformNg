@@ -1,5 +1,5 @@
 using AutoMapper;
-using Core.Services.Interfaces;
+using Core.Services.Authentication.Interfaces;
 using Core.SharedKernel.DTO;
 using Core.SharedKernel.Exceptions;
 using FluentValidation;
@@ -52,6 +52,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, AuthT
         _repository.Users.Add(user);
         await _repository.CommitAsync();
 
-        return _token.Generate(_mapper.Map<User, UserDTO>(user));
+        var userDTO = _mapper.Map<User, UserDTO>(user);
+        return _token.Generate(userDTO);
     }
 }

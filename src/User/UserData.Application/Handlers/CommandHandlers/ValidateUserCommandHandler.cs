@@ -1,4 +1,4 @@
-using Core.Services.Interfaces;
+using Core.Services.Authentication.Interfaces;
 using Core.SharedKernel.DTO;
 using Core.SharedKernel.Exceptions;
 using FluentValidation;

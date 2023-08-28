@@ -1,5 +1,4 @@
-
-namespace Notification.WebApi
+namespace Notification.API
 {
     public class Program
     {
@@ -12,7 +11,6 @@ namespace Notification.WebApi
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
 
@@ -25,25 +23,27 @@ namespace Notification.WebApi
 
             app.UseAuthorization();
 
-            var summaries = new[]
-            {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+            //// Register Fluent Email Services
+            //var emailConfig = new EmailConfiguration();
+            //configuration.GetSection(nameof(EmailConfiguration)).Bind(emailConfig);
 
-            app.MapGet("/weatherforecast", (HttpContext httpContext) =>
-            {
-                var forecast = Enumerable.Range(1, 5).Select(index =>
-                    new WeatherForecast
-                    {
-                        Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                        TemperatureC = Random.Shared.Next(-20, 55),
-                        Summary = summaries[Random.Shared.Next(summaries.Length)]
-                    })
-                    .ToArray();
-                return forecast;
-            })
-            .WithName("GetWeatherForecast")
-            .WithOpenApi();
+            //builder.Services.AddFluentEmail(defaultFromEmail: emailConfig.Email)
+            //    .AddRazorRenderer()
+            //    .AddMailKitSender(new SmtpClientOptions()
+            //    {
+            //        Server = emailConfig.Host,
+            //        Port = emailConfig.Port,
+            //        //User = emailConfig.Email,
+            //        //Password = emailConfig.Password,
+            //        //RequiresAuthentication = true,
+            //        PreferredEncoding = "utf-8",
+            //        UsePickupDirectory = true,
+            //        MailPickupDirectory = @"C:\Users\mgayle\email",
+            //        UseSsl = emailConfig.EnableSsl
+            //    });
+
+            //// Register Email Notification Service
+            //builder.Services.AddScoped<IEmailNotification, EmailNotificationService>();
 
             app.Run();
         }

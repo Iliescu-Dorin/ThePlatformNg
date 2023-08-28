@@ -1,3 +1,5 @@
+using Core.Services.Interfaces;
+
 namespace Core.Services.Caches;
 internal class SqlSugarCacheService
 {

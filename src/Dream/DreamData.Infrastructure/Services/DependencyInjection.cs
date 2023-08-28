@@ -1,4 +1,4 @@
-using Core.Services.Cloud.Interfaces;
+using Core.Services.Interfaces;
 using DreamData.Infrastructure.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
